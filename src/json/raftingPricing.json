@@ -1,0 +1,75 @@
+{
+  "shivpuri-rafting": [
+    {
+      "id": "4d25e7f7-b806-47f1-8f00-e4c5f87da160",
+      "title": "Most Popular 16KM Rafting Route",
+      "price": 999,
+      "final_price": 649,
+      "discount_percent": 35,
+      "duration": "16 KM • 2.5 – 3 Hours",
+      "order_no": 1
+    }
+  ],
+
+  "marine-drive-rafting": [
+    {
+      "id": "5bab6d84-c71a-4ec3-9b14-4ffac5c62954",
+      "title": "Adventure Season Offer",
+      "price": 1499,
+      "final_price": 999,
+      "discount_percent": 33.3,
+      "duration": "26 KM • 4 – 4.5 Hours",
+      "order_no": 1
+    }
+  ],
+
+  "brahmpuri-rafting": [
+    {
+      "id": "6bfbe94f-5bdc-432a-9aca-6ce3dd138437",
+      "title": "Summer Special",
+      "price": 699,
+      "final_price": 449,
+      "discount_percent": 35.7,
+      "duration": "9 KM • 1.5 – 2 Hours",
+      "order_no": 2
+    }
+  ],
+
+  "club-house-rafting": [
+    {
+      "id": "8532b267-1d56-4971-aebf-9689dc8bcced",
+      "title": "14KM Scenic River Ride – Perfect for Beginners & Groups",
+      "price": 800,
+      "final_price": 530,
+      "discount_percent": 34.92,
+      "duration": "14 KM • 2 – 2.5 Hours",
+      "description": "Enjoy a fun-filled 14KM rafting stretch from Club House to Ram Jhula. Ideal for beginners and group adventures.",
+      "order_no": 1
+    }
+  ],
+
+  "kaudiyala-rafting": [
+    {
+      "id": "c2deebd9-ed0b-4a88-bc14-e3fe5b6d47c7",
+      "title": "Peak Season Offer",
+      "price": 2999,
+      "final_price": 1999,
+      "discount_percent": 33.33,
+      "duration": "35 KM • 5 – 6 Hours",
+      "order_no": 1
+    }
+  ],
+
+  "marine-drive-shivpuri-rafting": [
+    {
+      "id": "68cdae92-19df-460f-9ede-63622e439dba",
+      "title": "12KM Thrilling Rapids Adventure",
+      "price": 899,
+      "final_price": 599,
+      "discount_percent": 33.3,
+      "duration": "12 KM • 1.5 – 2 Hours",
+      "description": "Enjoy an exciting 12KM rafting stretch from Marine Drive to Shivpuri featuring Grade II–III rapids.",
+      "order_no": 1
+    }
+  ]
+}

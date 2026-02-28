@@ -1,0 +1,696 @@
+{
+  "rishikesh-riverside-camping-package-1n-2d": {
+    "id": "b5d4a1db-49e1-4f3b-8813-04b3a2e7db21",
+    "slug": "rishikesh-riverside-camping-package-1n-2d",
+    "name": "Rishikesh Riverside Camping Package – 1 Night 2 Days",
+    "category": "camp",
+    "location": "Shivpuri, Rishikesh, Uttarakhand",
+    "tagline": "Riverside camping with AC & Non-AC cottages, pool, bonfire & DJ night",
+
+    "duration": {
+      "days": 2,
+      "nights": 1
+    },
+
+    "pricing_preview": {
+      "starting_price": 1499,
+      "old_price": 2499,
+      "discount_percent": 40
+    },
+
+    "rating": 5.0,
+    "review_count": 1340,
+
+    "capacity": 150,
+    "group_size": "Suitable for couples, families & large groups (up to 150 guests)",
+
+    "check_in": "11:00 AM",
+    "check_out": "10:00 AM",
+
+    "best_time": "All Seasons",
+
+    "amenities": [
+      "AC & Non-AC Cottages Available",
+      "Riverside Location near Ganga",
+      "Swimming Pool (08:00 AM – 08:00 PM)",
+      "Bonfire & DJ Night",
+      "Free WiFi",
+      "Mountain & Valley Views",
+      "Attached Washrooms",
+      "Free Parking",
+      "Charging Points in Rooms"
+    ],
+
+    "ideal_for": [
+      "All age groups",
+      "Families",
+      "Friends groups",
+      "Corporate outings",
+      "Weekend getaways",
+      "School & college groups"
+    ],
+
+    "not_recommended_for": ["Guests expecting luxury hotel services"],
+
+    "booking_notes": [
+      "No age restriction – suitable for all",
+      "Music allowed till 10:00 PM only",
+      "Swimming pool operational from 08:00 AM to 08:00 PM",
+      "Bonfire subject to weather conditions",
+      "Advance booking recommended during weekends & holidays",
+      "Government ID mandatory for all guests"
+    ],
+    "media": [
+      {
+        "media_url": "https://pfbppnumtcjfbhkluycb.supabase.co/storage/v1/object/public/Packages/rishikesh-riverside-camping-package-1n-2d/hero_banner.JPG",
+        "media_role": "hero_banner"
+      },
+      {
+        "media_url": "https://pfbppnumtcjfbhkluycb.supabase.co/storage/v1/object/public/Packages/rishikesh-riverside-camping-package-1n-2d/cover.jpg",
+        "media_role": "cover"
+      },
+      {
+        "media_url": "https://pfbppnumtcjfbhkluycb.supabase.co/storage/v1/object/public/Packages/rishikesh-riverside-camping-package-1n-2d/gallery1.jpg",
+        "media_role": "gallery"
+      },
+      {
+        "media_url": "https://pfbppnumtcjfbhkluycb.supabase.co/storage/v1/object/public/Packages/rishikesh-riverside-camping-package-1n-2d/gallery2.jpg",
+        "media_role": "gallery"
+      },
+      {
+        "media_url": "https://pfbppnumtcjfbhkluycb.supabase.co/storage/v1/object/public/Packages/rishikesh-riverside-camping-package-1n-2d/gallery3.jpg",
+        "media_role": "gallery"
+      },
+      {
+        "media_url": "https://pfbppnumtcjfbhkluycb.supabase.co/storage/v1/object/public/Packages/rishikesh-riverside-camping-package-1n-2d/gallery4.jpg",
+        "media_role": "gallery"
+      },
+      {
+        "media_url": "https://pfbppnumtcjfbhkluycb.supabase.co/storage/v1/object/public/Packages/rishikesh-riverside-camping-package-1n-2d/stay.jpg",
+        "media_role": "stay"
+      },
+      {
+        "media_url": "https://pfbppnumtcjfbhkluycb.supabase.co/storage/v1/object/public/Packages/rishikesh-riverside-camping-package-1n-2d/activity.jpg",
+        "media_role": "activity"
+      },
+      {
+        "media_url": "https://pfbppnumtcjfbhkluycb.supabase.co/storage/v1/object/public/Packages/rishikesh-riverside-camping-package-1n-2d/destination.jpg",
+        "media_role": "destination"
+      }
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrival at Riverside Camp & Leisure Activities",
+        "description": "Arrive at the riverside campsite near Rishikesh by 11:00 AM. Check-in and welcome. Enjoy lunch followed by leisure time, swimming pool access, riverside relaxation, evening snacks, music till 10 PM, and dinner. Overnight stay at the camp.",
+        "meals": {
+          "lunch": "Buffet vegetarian lunch (01:00 PM – 02:00 PM)",
+          "snacks": "Evening vegetarian snacks with tea",
+          "dinner": "Buffet dinner (Veg & Non-Veg) (09:00 PM – 10:00 PM)"
+        },
+        "stay": {
+          "type": "Riverside Camping Tents / Rooms",
+          "nights": 1
+        }
+      },
+      {
+        "day": 2,
+        "title": "Morning Views, Breakfast & Departure",
+        "description": "Wake up early to enjoy mountain and river views. Morning tea followed by buffet breakfast. Free time for relaxation. Check-out by 10:00 AM. Optional river rafting available nearby at Shivpuri.",
+        "meals": {
+          "tea": "Morning tea",
+          "breakfast": "Buffet vegetarian breakfast (08:00 AM – 09:00 AM)"
+        }
+      }
+    ],
+
+    "inclusions": [
+      "1 Night riverside camp accommodation",
+      "Attached washroom with running water",
+      "Comfortable bedding with mattress and blankets",
+      "Electricity and mobile charging points",
+      "Air cooler inside the camp",
+      "Buffet Lunch (Veg) on Day 01",
+      "Evening vegetarian snacks with tea",
+      "Buffet Dinner (Veg & Non-Veg)",
+      "Morning tea & Buffet Breakfast on Day 02",
+      "Music allowed till 10:00 PM",
+      "Free access to swimming pool (08 AM – 08 PM)",
+      "Parking facility at campsite",
+      "Mountain & valley view campsite"
+    ],
+
+    "exclusions": [
+      "River rafting (optional and chargeable)",
+      "Transportation to and from the campsite",
+      "Personal expenses of any kind",
+      "Alcoholic beverages",
+      "Travel or medical insurance",
+      "Damage to camp property (chargeable)",
+      "Anything not mentioned under inclusions"
+    ],
+
+    "faqs": [
+      {
+        "q": "What are the check-in and check-out timings?",
+        "a": "Check-in time is 11:00 AM and check-out time is 10:00 AM."
+      },
+      {
+        "q": "Does the campsite have a swimming pool?",
+        "a": "Yes, the campsite has a swimming pool accessible from 08:00 AM to 08:00 PM."
+      },
+      {
+        "q": "Is river rafting included?",
+        "a": "River rafting is not included but can be booked separately nearby."
+      },
+
+      {
+        "q": "Is the campsite safe for families and couples?",
+        "a": "Yes, the campsite is safe for families, couples, and groups. On-site staff are available and safety guidelines are followed."
+      },
+      {
+        "q": "What meals are included in the package?",
+        "a": "The package includes buffet lunch (Day 1), evening snacks with tea, buffet dinner (veg and non-veg), morning tea, and buffet breakfast (Day 2)."
+      },
+      {
+        "q": "How far is the campsite from the main road and highway?",
+        "a": "The campsite is approximately 1 km from the highway and requires a short uphill walk of about 10 meters from the road."
+      },
+      {
+        "q": "Is music allowed at night at the campsite?",
+        "a": "Yes, music is allowed at the campsite until 10:00 PM. Loud music after this time is not permitted to maintain a peaceful environment."
+      },
+      {
+        "q": "Is parking available at the campsite?",
+        "a": "Yes, free parking is available at the campsite for guests. The campsite is accessible by car and tempo traveller."
+      },
+      {
+        "q": "Do the camps have attached washrooms?",
+        "a": "Yes, all camps and rooms at the campsite come with clean and well-maintained attached washroom facilities."
+      },
+      {
+        "q": "How much advance payment is required to confirm the booking?",
+        "a": "A minimum advance payment of 30% of the total package amount is required to confirm the booking. The remaining balance must be paid in cash at the time of check-in."
+      }
+    ],
+
+    "seo": {
+      "meta_title": "Rishikesh Riverside Camping – 1 Night 2 Days | Pool & Bonfire ₹1499",
+      "meta_description": "Book riverside camping in Rishikesh with swimming pool, bonfire, DJ night, meals and mountain views. Starting ₹1499 per person."
+    }
+  },
+
+  "shivpuri-riverside-budget-camping-1n-2d": {
+    "id": "31ebcff3-1d9c-4f43-a9eb-b7481fac7aa4",
+    "slug": "shivpuri-riverside-budget-camping-1n-2d",
+    "name": "Shivpuri Riverside Budget Camping – 1 Night 2 Days",
+    "category": "camp",
+    "location": "Shivpuri, Rishikesh, Uttarakhand",
+
+    "tagline": "Riverside Budget Camping with Bonfire & Meals",
+
+    "duration": {
+      "days": 2,
+      "nights": 1
+    },
+
+    "difficulty": "Easy",
+
+    "pricing_preview": {
+      "starting_price": 1099,
+      "old_price": 1999,
+      "discount_percent": 45
+    },
+
+    "rating": 4.7,
+    "review_count": 760,
+
+    "best_time": "All Seasons",
+    "capacity": 60,
+    "group_size": "Suitable for couples, families & groups (up to 60 guests)",
+
+    "check_in": "11:00 AM",
+    "check_out": "10:00 AM",
+
+    "amenities": [
+      "Riverside Location near Ganga",
+      "Comfortable Alpine Tents",
+      "Common Washroom Facilities",
+      "Evening Bonfire",
+      "Music Night (Till 10:00 PM)",
+      "Mountain & Valley Views",
+      "Free Parking",
+      "Close to Shivpuri Rafting Point"
+    ],
+
+    "ideal_for": [
+      "Families",
+      "Friends groups",
+      "Weekend getaways",
+      "College groups",
+      "Adventure lovers"
+    ],
+
+    "booking_notes": [
+      "Dinner & breakfast included",
+      "Music allowed till 10:00 PM only",
+      "Bonfire subject to weather conditions",
+      "Government ID mandatory for all guests",
+      "Advance booking recommended during weekends"
+    ],
+
+    "inclusions": [
+      "1 Night stay in Alpine Tent",
+      "Dinner (Veg Buffet)",
+      "Breakfast (Veg Buffet)",
+      "Evening Tea & Snacks",
+      "Bonfire (Weather Permitting)",
+      "Music Night (Till 10:00 PM)",
+      "Common Washroom Facilities",
+      "Free Parking",
+      "Electricity Backup in Common Areas",
+      "Riverside Location near Ganga River"
+    ],
+
+    "exclusions": [
+      "River rafting and other adventure activities",
+      "Transportation to and from the campsite",
+      "Personal expenses (snacks, beverages, etc.)",
+      "Any extra meals not mentioned in inclusions"
+    ],
+
+    "media": [
+      {
+        "media_url": "https://pfbppnumtcjfbhkluycb.supabase.co/storage/v1/object/public/Packages/shivpuri-riverside-budget-camping-1n-2d/hero-banner.webp",
+        "media_role": "hero_banner"
+      },
+      {
+        "media_url": "https://pfbppnumtcjfbhkluycb.supabase.co/storage/v1/object/public/Packages/shivpuri-riverside-budget-camping-1n-2d/hero.webp",
+        "media_role": "hero"
+      },
+      {
+        "media_url": "https://pfbppnumtcjfbhkluycb.supabase.co/storage/v1/object/public/Packages/shivpuri-riverside-budget-camping-1n-2d/coverrr.webp",
+        "media_role": "cover"
+      },
+      {
+        "media_url": "https://pfbppnumtcjfbhkluycb.supabase.co/storage/v1/object/public/Packages/shivpuri-riverside-budget-camping-1n-2d/photo_2026-02-22_12-36-33.webp",
+        "media_role": "gallery"
+      },
+      {
+        "media_url": "https://pfbppnumtcjfbhkluycb.supabase.co/storage/v1/object/public/Packages/shivpuri-riverside-budget-camping-1n-2d/photo_2026-02-22_12-36-34.webp",
+        "media_role": "gallery"
+      },
+      {
+        "media_url": "https://pfbppnumtcjfbhkluycb.supabase.co/storage/v1/object/public/Packages/shivpuri-riverside-budget-camping-1n-2d/stay.webp",
+        "media_role": "stay"
+      },
+      {
+        "media_url": "https://pfbppnumtcjfbhkluycb.supabase.co/storage/v1/object/public/Packages/shivpuri-riverside-budget-camping-1n-2d/activity.webp",
+        "media_role": "activity"
+      }
+    ],
+
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrival at Riverside Camp & Evening Bonfire",
+        "description": "Arrive at the riverside campsite in Shivpuri by 11:00 AM. Check-in to your alpine tent and relax by the river while enjoying mountain views. In the evening, enjoy tea & snacks followed by bonfire and music night (till 10:00 PM). Dinner will be served at the campsite.",
+        "stay": {
+          "type": "Riverside Alpine Camping Tents",
+          "nights": "1N"
+        },
+        "meals": {
+          "snacks": "Evening vegetarian snacks with tea (05:30 PM – 06:30 PM)",
+          "dinner": "Buffet vegetarian dinner (08:00 PM – 09:30 PM)"
+        }
+      },
+      {
+        "day": 2,
+        "title": "Morning Views, Breakfast & Departure",
+        "description": "Wake up to fresh mountain air and peaceful riverside views. Breakfast will be served at the campsite. After breakfast, check-out by 10:00 AM.",
+        "meals": {
+          "breakfast": "Buffet vegetarian breakfast (08:00 AM – 09:30 AM)"
+        }
+      }
+    ],
+
+    "faqs": [
+      {
+        "q": "Is this camp suitable for couples and families?",
+        "a": "Yes, the camp is suitable for couples, families, friends groups, and college groups."
+      },
+      {
+        "q": "Are attached washrooms available?",
+        "a": "No, the camp provides clean and well-maintained common washroom facilities."
+      },
+      {
+        "q": "What meals are included in the package?",
+        "a": "The package includes evening tea & snacks, buffet vegetarian dinner, and buffet vegetarian breakfast."
+      },
+      {
+        "q": "Is river rafting included in this package?",
+        "a": "No, river rafting is not included but can be arranged separately."
+      },
+      {
+        "q": "What are the check-in and check-out timings?",
+        "a": "Check-in is at 11:00 AM and check-out is at 10:00 AM."
+      }
+    ]
+  },
+
+  "malakunti-adventure-activity-camp-with-pool-1n-2d": {
+    "id": "c6e387fe-9e21-445b-a722-2b54b91656f7",
+    "slug": "malakunti-adventure-activity-camp-with-pool-1n-2d",
+    "name": "Malakunti Adventure Activity Camp with Pool – 1 Night 2 Days",
+    "category": "camp",
+    "location": "Malakunti, Rishikesh, Uttarakhand",
+
+    "tagline": "Adventure Camp with Pool, 3 Meals & 10+ Activities",
+
+    "description": "Experience an exciting 1 Night 2 Days adventure camp in Malakunti, Rishikesh including 3 delicious meals and evening snacks. Enjoy swimming pool access and thrilling activities like skywalk, tyre walk, burma bridge, archery, shooting, badminton, and volleyball. Evening bonfire and music from 7:00 PM to 10:00 PM.",
+
+    "duration": {
+      "days": 2,
+      "nights": 1
+    },
+
+    "difficulty": "Easy",
+
+    "pricing_preview": {
+      "starting_price": 1399,
+      "old_price": 2350,
+      "discount_percent": 40
+    },
+
+    "rating": 4.7,
+    "review_count": 0,
+
+    "best_time": "All Seasons",
+    "capacity": 120,
+    "group_size": "Suitable for couples, families, school groups & corporate outings",
+
+    "check_in": "11:00 AM",
+    "check_out": "10:00 AM",
+
+    "washroom_type": "Attached washrooms with running water",
+
+    "amenities": [
+      "Swimming Pool Access",
+      "3 Meals + Evening Snacks",
+      "Skywalk Activity",
+      "Tyre Walk",
+      "Burma Bridge",
+      "Archery & Shooting",
+      "Badminton & Volleyball",
+      "Bonfire & Music Night (7 PM – 10 PM)",
+      "Mountain Views & Open Green Area",
+      "Free Parking"
+    ],
+
+    "ideal_for": [
+      "Families",
+      "Friends groups",
+      "School & college groups",
+      "Corporate outings",
+      "Weekend getaways"
+    ],
+
+    "not_recommended_for": ["Guests expecting luxury hotel services"],
+
+    "booking_notes": [
+      "All activities subject to weather conditions",
+      "Music allowed till 10:00 PM only",
+      "Swimming pool operational from 08:00 AM to 08:00 PM",
+      "Government ID mandatory for all guests",
+      "Advance booking recommended during weekends"
+    ],
+
+    "inclusions": [
+      "1 Night Stay in Camp Accommodation",
+      "3 Vegetarian Meals (Lunch, Dinner & Breakfast)",
+      "Evening Tea & Snacks",
+      "Swimming Pool Access (08:00 AM – 08:00 PM)",
+      "Skywalk Activity",
+      "Tyre Walk Activity",
+      "Burma Bridge Activity",
+      "Archery & Shooting Activity",
+      "Badminton & Volleyball Access",
+      "Bonfire & Music Night (7:00 PM – 10:00 PM)",
+      "Free Parking"
+    ],
+
+    "exclusions": [
+      "Transportation to and from the campsite",
+      "Personal expenses (extra snacks, beverages, etc.)",
+      "Any additional activities not mentioned in inclusions"
+    ],
+
+    "media": [
+      {
+        "media_url": "https://pfbppnumtcjfbhkluycb.supabase.co/storage/v1/object/public/Packages/MalaKunti%20Adventure%20Camp/hero.webp",
+        "media_role": "hero"
+      },
+      {
+        "media_url": "https://pfbppnumtcjfbhkluycb.supabase.co/storage/v1/object/public/Packages/MalaKunti%20Adventure%20Camp/cover.webp",
+        "media_role": "cover"
+      },
+      {
+        "media_url": "https://pfbppnumtcjfbhkluycb.supabase.co/storage/v1/object/public/Packages/MalaKunti%20Adventure%20Camp/photo_2026-02-22_15-24-21.webp",
+        "media_role": "gallery"
+      },
+      {
+        "media_url": "https://pfbppnumtcjfbhkluycb.supabase.co/storage/v1/object/public/Packages/MalaKunti%20Adventure%20Camp/photo_2026-02-22_15-24-25.webp",
+        "media_role": "gallery"
+      },
+      {
+        "media_url": "https://pfbppnumtcjfbhkluycb.supabase.co/storage/v1/object/public/Packages/MalaKunti%20Adventure%20Camp/photo_2026-02-22_15-24-35.webp",
+        "media_role": "gallery"
+      },
+      {
+        "media_url": "https://pfbppnumtcjfbhkluycb.supabase.co/storage/v1/object/public/Packages/MalaKunti%20Adventure%20Camp/stay.webp",
+        "media_role": "stay"
+      },
+      {
+        "media_url": "https://pfbppnumtcjfbhkluycb.supabase.co/storage/v1/object/public/Packages/MalaKunti%20Adventure%20Camp/activity.webp",
+        "media_role": "activity"
+      }
+    ],
+
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrival, Adventure Activities & Bonfire Night",
+        "description": "Arrive at the Malakunti adventure camp by 11:00 AM and complete check-in. Enjoy lunch and spend the afternoon enjoying adventure activities including skywalk, tyre walk, burma bridge, archery, shooting, badminton, and volleyball. Relax in the swimming pool. In the evening, enjoy tea & snacks followed by bonfire and music night (7 PM – 10 PM). Dinner will be served at the campsite.",
+        "meals": {
+          "lunch": "Buffet vegetarian lunch (01:00 PM – 02:00 PM)",
+          "snacks": "Evening tea & snacks (05:30 PM – 06:30 PM)",
+          "dinner": "Buffet vegetarian dinner (08:00 PM – 09:30 PM)"
+        },
+        "stay": {
+          "type": "Camp Accommodation",
+          "nights": 1
+        }
+      },
+      {
+        "day": 2,
+        "title": "Morning Breakfast & Departure",
+        "description": "Wake up to fresh mountain air and enjoy breakfast at the campsite. Guests can relax in the open green area or use the swimming pool during operational hours. Check-out by 10:00 AM.",
+        "meals": {
+          "breakfast": "Buffet vegetarian breakfast (08:00 AM – 09:30 AM)"
+        }
+      }
+    ],
+
+    "faqs": [
+      {
+        "q": "What is included in the ₹1399 package?",
+        "a": "The package includes 1 night stay, 3 vegetarian meals, evening tea & snacks, swimming pool access, adventure activities, and bonfire with music."
+      },
+      {
+        "q": "Are all adventure activities included?",
+        "a": "Yes, all listed camp activities are included in the package cost."
+      },
+      {
+        "q": "Is the swimming pool included?",
+        "a": "Yes, swimming pool access is included and operational from 08:00 AM to 08:00 PM."
+      },
+      {
+        "q": "Are meals vegetarian or non-vegetarian?",
+        "a": "The standard package includes vegetarian meals. Non-vegetarian options may be available at additional cost."
+      },
+      {
+        "q": "Is transportation included?",
+        "a": "No, transportation to and from the campsite is not included."
+      },
+      {
+        "q": "What are the check-in and check-out timings?",
+        "a": "Check-in is at 11:00 AM and check-out is at 10:00 AM."
+      }
+    ]
+  },
+
+  "aureva-riverside-luxe-retreat": {
+    "id": "5d12784e-192a-4c61-b101-2948339c27f9",
+    "slug": "aureva-riverside-luxe-retreat",
+    "name": "Aureva Riverside Luxe Retreat",
+    "category": "camp",
+    "location": "Malakunti Village, Rishikesh, Uttarakhand",
+
+    "tagline": "Ultra-Luxury Dome Stay by the Riverside",
+
+    "description": "A premium riverside luxury dome stay with AC & non-AC cottages, private balconies, swimming pool, bonfire nights and scenic Himalayan views.",
+
+    "duration": {
+      "days": 2,
+      "nights": 1
+    },
+
+    "difficulty": "Easy",
+
+    "pricing_preview": {
+      "starting_price": 4000,
+      "old_price": 6000,
+      "discount_percent": 33
+    },
+
+    "rating": 4.8,
+    "review_count": 124,
+
+    "best_time": "All Seasons (Best: Oct – Mar)",
+    "capacity": 150,
+    "group_size": "Couples, Families, Corporate Groups",
+
+    "check_in": "02:00 PM",
+    "check_out": "11:00 AM",
+
+    "washroom_type": "Attached Private Washrooms",
+
+    "amenities": [
+      "Luxury AC & Non-AC Dome Cottages",
+      "Attached Private Washrooms",
+      "Swimming Pool with Valley Views",
+      "Bonfire & DJ Night",
+      "Free Wi-Fi & Power Backup",
+      "Private Balcony Seating",
+      "Riverside Nature Walks",
+      "On-site Restaurant"
+    ],
+
+    "ideal_for": [
+      "Couples",
+      "Families",
+      "Friends",
+      "Corporate Offsites",
+      "Honeymooners"
+    ],
+
+    "not_recommended_for": ["Guests seeking extreme adventure"],
+
+    "booking_notes": [
+      "Valid ID proof required at check-in",
+      "Bonfire & DJ till 10:00 PM",
+      "River rafting available at extra cost",
+      "Early check-in subject to availability"
+    ],
+
+    "inclusions": [
+      "Luxury AC / Non-AC Cottage Accommodation",
+      "Welcome Drink on Arrival",
+      "Evening Snacks",
+      "Buffet Dinner (Veg & Non-Veg)",
+      "Breakfast Next Morning",
+      "Swimming Pool Access",
+      "Bonfire with Music",
+      "DJ Night (Selected Days)",
+      "Free Wi-Fi in Common Areas",
+      "Power Backup",
+      "Attached Private Washrooms",
+      "Free Parking Facility",
+      "Indoor & Outdoor Games",
+      "Riverside Leisure Access",
+      "Basic First-Aid Assistance",
+      "All Applicable Taxes Included"
+    ],
+
+    "exclusions": [
+      "Lunch (Unless Specified)",
+      "Any Personal Expenses",
+      "Extra Food or Beverages",
+      "Alcoholic Beverages",
+      "Room Service",
+      "Transportation or Transfers",
+      "Adventure Activities (If Any)",
+      "Early Check-in or Late Check-out",
+      "Anything Not Mentioned Under Inclusions"
+    ],
+
+    "media": [
+      {
+        "media_url": "/packages/aureva/hero.webp",
+        "media_role": "hero"
+      },
+      {
+        "media_url": "/packages/aureva/cover.webp",
+        "media_role": "cover"
+      }
+    ],
+
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrival • Leisure Activities • Bonfire & DJ Night",
+        "description": "Arrive at the luxury camp and enjoy a welcome drink. Check into your AC or Non-AC cottage with attached washroom. Enjoy swimming pool access, indoor & outdoor games, riverside walk and free Wi-Fi. Evening snacks followed by bonfire and DJ night. Buffet dinner and overnight stay.",
+        "stay": {
+          "type": "Luxury Riverside Camp Cottage",
+          "nights": 1
+        },
+        "meals": {
+          "dinner": "Buffet dinner with vegetarian & non-vegetarian options"
+        }
+      },
+      {
+        "day": 2,
+        "title": "Morning Leisure • Breakfast • Checkout",
+        "description": "Wake up to scenic Himalayan views. Enjoy tea/coffee and leisure time. Freshen up and enjoy a healthy breakfast buffet before checkout.",
+        "meals": {
+          "breakfast": "Healthy breakfast buffet with tea & coffee"
+        }
+      }
+    ],
+
+    "faqs": [
+      {
+        "q": "Is this camp suitable for couples and families?",
+        "a": "Yes, the camp is ideal for couples, families, groups, and corporate outings."
+      },
+      {
+        "q": "Are AC and Non-AC cottages available?",
+        "a": "Yes, both AC and Non-AC luxury cottages are available with attached washrooms."
+      },
+      {
+        "q": "Do you have a swimming pool?",
+        "a": "Yes, a well-maintained swimming pool is available during operational hours."
+      },
+      {
+        "q": "Is bonfire and DJ night included?",
+        "a": "Yes, bonfire with music is included. DJ night is organised on selected days."
+      },
+      {
+        "q": "Is food included in the package?",
+        "a": "Yes, the package includes evening snacks, buffet dinner, and breakfast."
+      },
+      {
+        "q": "Is parking available?",
+        "a": "Yes, free and secure parking is available inside the property."
+      },
+      {
+        "q": "Is Wi-Fi available?",
+        "a": "Complimentary Wi-Fi is available in common areas."
+      },
+      {
+        "q": "What is the check-in and check-out time?",
+        "a": "Check-in starts from 02:00 PM and check-out is by 11:00 AM."
+      }
+    ]
+  }
+}

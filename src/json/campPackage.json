@@ -1,0 +1,54 @@
+[
+  {
+    "id": "b5d4a1db-49e1-4f3b-8813-04b3a2e7db21",
+    "name": "Rishikesh Riverside Camping Package – 1 Night 2 Days",
+    "slug": "rishikesh-riverside-camping-package-1n-2d",
+    "tagline": "Riverside Camping with Pool, Meals & Mountain Views",
+    "duration_days": 2,
+    "starting_price": 1499,
+    "old_price": 2499,
+    "rating": 5.0,
+    "review_count": 1340,
+    "category": "camp",
+    "image": "/assets/camping4.webp"
+  },
+  {
+    "id": "31ebcff3-1d9c-4f43-a9eb-b7481fac7aa4",
+    "name": "Shivpuri Riverside Budget Camping – 1 Night 2 Days",
+    "slug": "shivpuri-riverside-budget-camping-1n-2d",
+    "tagline": "Riverside Budget Camping with Bonfire & Meals",
+    "duration_days": 2,
+    "starting_price": 1099,
+    "old_price": 1999,
+    "rating": 4.7,
+    "review_count": 760,
+    "category": "camp",
+    "image": "/assets/camping1.webp"
+  },
+  {
+    "id": "5d12784e-192a-4c61-b101-2948339c27f9",
+    "name": "Aureva Riverside Luxe Retreat",
+    "slug": "aureva-riverside-luxe-retreat",
+    "tagline": "Ultra-Luxury Dome Stay by the Riverside",
+    "duration_days": 2,
+    "starting_price": 4000,
+    "old_price": 6000,
+    "rating": 4.8,
+    "review_count": 124,
+    "category": "camp",
+    "image": "/assets/camping3.webp"
+  },
+  {
+    "id": "c6e387fe-9e21-445b-a722-2b54b91656f7",
+    "name": "Malakunti Adventure Activity Camp with Pool – 1 Night 2 Days",
+    "slug": "malakunti-adventure-activity-camp-with-pool-1n-2d",
+    "tagline": "Adventure Camp with Pool, 3 Meals & 10+ Activities",
+    "duration_days": 2,
+    "starting_price": 1399,
+    "old_price": 2350,
+    "rating": 4.7,
+    "review_count": 0,
+    "category": "camp",
+    "image": "/assets/camping2.webp"
+  }
+]

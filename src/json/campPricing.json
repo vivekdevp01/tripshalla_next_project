@@ -1,0 +1,63 @@
+{
+  "shivpuri-riverside-budget-camping-1n-2d": [
+    {
+      "id": "cc4ccec2-759b-4bc3-925f-2f9747bd5737",
+      "title": "Riverside Budget Camp (1N/2D)",
+      "description": "Includes 1 night stay in alpine tent, dinner, breakfast, evening snacks, bonfire, and music night. Ideal for weekend riverside getaway near Shivpuri.",
+      "duration": "1 Night / 2 Days",
+      "price": 1999,
+      "discount_percent": 45,
+      "final_price": 1099,
+      "order_no": 1
+    }
+  ],
+
+  "rishikesh-riverside-camping-package-1n-2d": [
+    {
+      "id": "df1ea988-7e8d-41ce-a0d2-f2f7d959e19e",
+      "title": "Best-Selling Riverside Escape",
+      "description": "Ideal for weekends. Includes meals, riverside camping, bonfire, and adventure activities.",
+      "duration": "1 Night / 2 Days",
+      "price": 2499,
+      "discount_percent": 40,
+      "final_price": 1499,
+      "order_no": 2
+    }
+  ],
+
+  "aureva-riverside-luxe-retreat": [
+    {
+      "id": "fa4d365a-2d34-4e90-8c1d-0ee85ab8c446",
+      "title": "Luxury Couple Cottage (Non-AC)",
+      "description": "Spacious non-AC cottage with private washroom, bonfire & DJ night",
+      "duration": "1 Night / 2 Days",
+      "price": 6500,
+      "discount_percent": 10,
+      "final_price": 5850,
+      "order_no": 1
+    },
+    {
+      "id": "b0dbdb2b-56c9-4292-a02a-84876028d295",
+      "title": "Ultra Luxury Couple Suite (AC)",
+      "description": "Ultra luxury suite with AC, premium interiors & private sit-out",
+      "duration": "1 Night / 2 Days",
+      "price": 12000,
+      "discount_percent": 15,
+      "final_price": 10200,
+      "order_no": 3
+    }
+  ],
+
+  "malakunti-adventure-activity-camp-with-pool-1n-2d": [
+    {
+      "id": "72f54a30-7894-430c-9857-3e19106d0689",
+      "title": "Weekday Adventure Camp Offer",
+      "description": "Includes 1 night stay, 3 vegetarian meals, evening snacks, swimming pool access, all camp activities, and bonfire with music.",
+      "duration": "1 Night / 2 Days",
+      "price": 2350,
+      "discount_percent": 40.46,
+      "final_price": 1399,
+      "order_no": 1
+    }
+  ]
+}
