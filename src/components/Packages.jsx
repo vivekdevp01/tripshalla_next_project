@@ -12,6 +12,7 @@ import ResultsSummary from "./ResultSummary";
 import TrustAssuranceStrip from "./TrustAssuranceStrip";
 import PackageFAQs from "./PackageFAQs";
 import HeroHeader from "./HeroHeader";
+import AdventureLoader from "./AdventureLoader";
 export default function Packages() {
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
   const [filters, setFilters] = useState({
@@ -25,6 +26,7 @@ export default function Packages() {
 
   return (
     <>
+    <AdventureLoader>
       <HeroHeader />
       <div className="w-full">
         {/* INTRO SECTION */}
@@ -77,6 +79,7 @@ export default function Packages() {
           packageId={null}
         />
       </div>
+      </AdventureLoader>
     </>
   );
 }
