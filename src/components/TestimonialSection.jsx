@@ -1,5 +1,5 @@
-'use client'
-import { useState } from "react";
+"use client";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const testimonials = [
@@ -46,6 +46,26 @@ export default function TestimonialSection() {
   const [index, setIndex] = useState(0);
   const t = testimonials[index];
 
+  useEffect(() => {
+    if (previewImage) {
+      document.documentElement.style.overflow = "hidden"; // html
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
+    } else {
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    }
+
+    return () => {
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    };
+  }, [previewImage]);
   const next = () => setIndex((i) => (i + 1) % testimonials.length);
   const prev = () =>
     setIndex((i) => (i === 0 ? testimonials.length - 1 : i - 1));

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import {
@@ -12,6 +12,7 @@ import { MdOutlineHeight } from "react-icons/md";
 import Header from "./Header";
 import ExplorationGrid from "./ExplorationGrid";
 import TourDetails from "./TourDetails";
+import splashPricing from "../json/splashPricing.json";
 import TripItinerary from "./TripItinerary";
 import PackageSummary from "./PackageSummary";
 import PolicyAccordion from "./PolicyAccordion";
@@ -59,6 +60,11 @@ export default function Tour2() {
 
   // const pkg = BUNGY_DATA[slug] || BUNGY_DATA["splash-bungy"]; // Fallback for dev
   const pkg = splashActivityDetails[slug];
+  const pricingOptions = splashPricing[slug] || [];
+
+  const bestPricing = pricingOptions.length
+    ? [...pricingOptions].sort((a, b) => a.final_price - b.final_price)[0]
+    : null;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -82,27 +88,29 @@ export default function Tour2() {
     <main className="bg-[#FAFAFA]">
       {/* 1. HEADER - Bungy Style */}
       <script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{ __html: JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "TouristAttraction",
-    "name": pkg.name,
-    "description": pkg.tagline,
-    "url": `https://www.tripshalla.in/bungy/${slug}`,
-    "image": pkg.media[0]?.media_url,
-    "offers": {
-      "@type": "Offer",
-      "price": pkg.price,
-      "priceCurrency": "INR",
-      "availability": "https://schema.org/InStock"
-    },
-    "provider": {
-      "@type": "Organization",
-      "name": "Tripshalla",
-      "url": "https://www.tripshalla.in"
-    }
-  })}}
-/>
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "TouristAttraction",
+            name: pkg.name,
+            description: pkg.tagline,
+            url: `https://www.tripshalla.in/bungy/${slug}`,
+            image: pkg.media[0]?.media_url,
+            offers: {
+              "@type": "Offer",
+            price: bestPricing?.final_price || pkg.price,
+              priceCurrency: "INR",
+              availability: "https://schema.org/InStock",
+            },
+            provider: {
+              "@type": "Organization",
+              name: "Tripshalla",
+              url: "https://www.tripshalla.in",
+            },
+          }),
+        }}
+      />
 
       <Header
         variant="tour"
@@ -199,12 +207,7 @@ export default function Tour2() {
           <aside className="hidden lg:block">
             <div className="h-full flex flex-col">
               <div className="space-y-8 mb-8">
-                <PriceCard
-                  pricing={{
-                    final_price: pkg.price,
-                    discount_price: pkg.oldPrice,
-                  }}
-                />
+                <PriceCard pricing={bestPricing} />
                 <GotAQuestionCard />
                 <GroupOfferCard />
                 <WhyChooseUs />
@@ -219,28 +222,27 @@ export default function Tour2() {
 
       {/* 3. FOOTER SECTIONS */}
       <section className="mt-14">
-     <section className="bg-[#FFF7ED] py-10">
-              <div className="max-w-7xl mx-auto px-4 md:px-6">
-                <PackageSummary inclusions={pkg.inclusions} exclusions={pkg.exclusions} />
-    
-                {/* 📱 MOBILE ONLY PRICE CARD - Appears right after Summary */}
-                <div className="mt-8 lg:hidden">
-                  <PriceCard pricing={{
-                    final_price: pkg.price,
-                    discount_price: pkg.oldPrice,
-                  }} />
-                </div>
-              </div>
-            </section>
-    
-            <section className="bg-white py-10">
-              <div className="max-w-7xl mx-auto px-4 md:px-6">
-                <PolicyAccordion policies={pkg.policies} />
-    
-                {/* 📱 MOBILE ONLY SUPPORT CARDS - Optional but recommended for conversion */}
-              
-              </div>
-            </section>
+        <section className="bg-[#FFF7ED] py-10">
+          <div className="max-w-7xl mx-auto px-4 md:px-6">
+            <PackageSummary
+              inclusions={pkg.inclusions}
+              exclusions={pkg.exclusions}
+            />
+
+            {/* 📱 MOBILE ONLY PRICE CARD - Appears right after Summary */}
+            <div className="mt-8 lg:hidden">
+              <PriceCard pricing={bestPricing} />
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white py-10">
+          <div className="max-w-7xl mx-auto px-4 md:px-6">
+            <PolicyAccordion policies={pkg.policies} />
+
+            {/* 📱 MOBILE ONLY SUPPORT CARDS - Optional but recommended for conversion */}
+          </div>
+        </section>
 
         <section className="bg-[#FAFAFA] py-10">
           <div className="max-w-7xl mx-auto px-4 md:px-6">

@@ -34,7 +34,7 @@ const PrivacyPolicy = () => {
               Introduction
             </h2>
             <p>
-              This privacy policy applies to <strong>www.TripShalla.com</strong>
+              This privacy policy applies to <strong>www.TripShalla.in </strong>
               and is operated by TripShalla Tours and Adventure Pvt. Ltd.
             </p>
             <p className="mt-4">

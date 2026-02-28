@@ -98,8 +98,8 @@ const Terms = () => {
             </p>
 
             <p>
-              Courts located in Jaipur shall have exclusive jurisdiction over
-              any disputes arising under these Terms.
+              Courts located in Uttarakhand shall have exclusive jurisdiction
+              over any disputes arising under these Terms.
             </p>
 
             <p className="mt-10 text-xs text-slate-400">

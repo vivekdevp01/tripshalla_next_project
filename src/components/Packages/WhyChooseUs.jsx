@@ -1,5 +1,10 @@
 import React from "react";
-import { ShieldCheck, Globe2, HeartHandshake, CheckCircle2 } from "lucide-react";
+import {
+  ShieldCheck,
+  Globe2,
+  HeartHandshake,
+  CheckCircle2,
+} from "lucide-react";
 
 export default function WhyChooseUs() {
   const benefits = [

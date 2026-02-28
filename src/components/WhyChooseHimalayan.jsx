@@ -3,23 +3,23 @@ import { Heart, Star, PhoneCall, BadgeCheck } from "lucide-react";
 
 const items = [
   {
-    title: "3 Million+",
-    desc: "Happy customers from 70+ countries all around.",
+    title: "Trusted by Travelers",
+    desc: "Hundreds of happy guests enjoying safe and memorable experiences.",
     icon: Heart,
   },
   {
-    title: "4.8/5",
-    desc: "Rated across Trip Advisor and Google.",
+    title: "Highly Rated Experiences",
+    desc: "Consistently appreciated for quality, safety and smooth bookings.",
     icon: Star,
   },
   {
-    title: "Curated with love",
-    desc: "Special curated Indian itineraries for Indians.",
+    title: "Carefully Curated",
+    desc: "Only verified camps, stays and adventure partners.",
     icon: BadgeCheck,
   },
   {
-    title: "24/7 On-trip assistance",
-    desc: "We are always there to help you pre, post and on the trip.",
+    title: "On-Trip Support",
+    desc: "We stay connected with you throughout your journey.",
     icon: PhoneCall,
   },
 ];

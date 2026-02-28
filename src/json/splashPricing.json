@@ -1,0 +1,109 @@
+{
+  "sky-walk": [
+    {
+      "id": "301a",
+      "title": "Standard Sky Walk Entry",
+      "price": 1499,
+      "final_price": 999,
+      "discount_percent": 33.3,
+      "duration": "Approx. 10 – 15 Minutes",
+      "order_no": 1
+    }
+  ],
+
+  "rocket-bungy-85m": [
+    {
+      "id": "302a",
+      "title": "85M Rocket Bungy Launch",
+      "price": 2499,
+      "final_price": 1999,
+      "discount_percent": 20,
+      "duration": "Single Launch Experience",
+      "order_no": 1
+    }
+  ],
+
+  "zipline-500m": [
+    {
+      "id": "303a",
+      "title": "500M Valley Zipline",
+      "price": 1999,
+      "final_price": 1199,
+      "discount_percent": 40,
+      "duration": "Approx. 1 – 2 Minutes Ride",
+      "order_no": 1
+    }
+  ],
+
+  "tower-top-swing": [
+    {
+      "id": "304a",
+      "title": "Tower Top Free Fall Swing",
+      "price": 1999,
+      "final_price": 1199,
+      "discount_percent": 40,
+      "duration": "Single Swing Experience",
+      "order_no": 1
+    }
+  ],
+
+  "splash-bungy-109m": [
+    {
+      "id": "305a",
+      "title": "109M Splash Bungy Jump",
+      "price": 4999,
+      "final_price": 3999,
+      "discount_percent": 20,
+      "duration": "Single Jump + Certificate",
+      "order_no": 1
+    }
+  ],
+
+  "combo-1": [
+    {
+      "id": "401a",
+      "title": "Splash Bungy + Tower Swing",
+      "price": 5500,
+      "final_price": 3500,
+      "discount_percent": 36.36,
+      "duration": "2 Premium Activities",
+      "order_no": 1
+    }
+  ],
+
+  "combo-2": [
+    {
+      "id": "402a",
+      "title": "Mega Adventure Combo",
+      "price": 8500,
+      "final_price": 6000,
+      "discount_percent": 29.4,
+      "duration": "4 Activities Combo",
+      "order_no": 1
+    }
+  ],
+
+  "combo-3": [
+    {
+      "id": "403a",
+      "title": "Extreme Combo Pack",
+      "price": 7500,
+      "final_price": 5000,
+      "discount_percent": 33.3,
+      "duration": "3 Activities Combo",
+      "order_no": 1
+    }
+  ],
+
+  "combo-6": [
+    {
+      "id": "404a",
+      "title": "All Activities Ultimate Combo",
+      "price": 7999,
+      "final_price": 5500,
+      "discount_percent": 31.25,
+      "duration": "5 Activities Combo",
+      "order_no": 1
+    }
+  ]
+}

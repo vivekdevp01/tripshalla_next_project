@@ -6,6 +6,7 @@ import { useParams, useRouter, usePathname } from "next/navigation";
 import EnquiryModal from "./Packages/EnquiryModal";
 import { motion } from "framer-motion";
 import AdventureLoader from "./AdventureLoader";
+import { createPortal } from "react-dom";
 import campPackages from "../json/campPackage.json";
 const overlayByCategory = {
   overlayColor: "from-amber-900/90 via-amber-900/40 to-transparent",
