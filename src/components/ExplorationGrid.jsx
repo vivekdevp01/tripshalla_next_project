@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useRef, useEffect, useState } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
 import {
@@ -20,7 +20,11 @@ export default function ExplorationGrid({ media = [] }) {
   }, [isInView, controls]);
 
   // ---------- MEDIA GROUPING ----------
-  const hero = media.find((m) => m.media_role === "hero");
+  const hero =
+    media.find((m) => m.media_role === "hero_banner") ||
+    media.find((m) => m.media_role === "hero") ||
+    media.find((m) => m.media_role === "cover") ||
+    media[0];
   const destination = media.find((m) => m.media_role === "destination");
   const stay = media.find((m) => m.media_role === "stay");
   const activity = media.find((m) => m.media_role === "activity");
@@ -32,7 +36,7 @@ export default function ExplorationGrid({ media = [] }) {
     stay?.media_url,
     activity?.media_url,
     gallery?.[0]?.media_url,
-  ].filter(Boolean);
+  ].filter((item) => typeof item === "string" && item.length > 0);
 
   const allImages = media.map((m) => m.media_url);
 
@@ -94,6 +98,7 @@ export default function ExplorationGrid({ media = [] }) {
   grid gap-4
   grid-cols-1
   md:grid-cols-4 md:grid-rows-2
+  auto-rows-[250px]
   md:h-[640px]
 "
           >

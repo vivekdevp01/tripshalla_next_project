@@ -72,12 +72,12 @@ export default function TourDetails({
             <FactCard
               icon={<HiOutlineClock />}
               label="Check-in"
-              value={details.check_in_time}
+              value={details.check_in}
             />
             <FactCard
               icon={<HiOutlineClock />}
               label="Check-out"
-              value={details.check_out_time}
+              value={details.check_out}
             />
           </div>
         )}
