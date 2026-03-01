@@ -134,7 +134,7 @@ export default function Tour2() {
             <TourDetails
               title={pkg.name}
               highlight={pkg.tagline}
-              details={pkg}
+              // details={pkg}
               summary={[
                 pkg.height || pkg.length,
                 pkg.duration,
