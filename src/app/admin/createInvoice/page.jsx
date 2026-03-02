@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { Plus, Trash2 } from "lucide-react";
 import { useState, useMemo, useRef, useEffect } from "react";
 import html2canvas from "html2canvas";
@@ -7,29 +7,44 @@ import InvoicePreview from "../../../components/InvoicePreview";
 
 /* ---------- MASTER DATA ---------- */
 
-const LOCATIONS = ["Rishikesh", "Shivpuri", "Kaudiyala", "Auli"];
+// const LOCATIONS = ["Rishikesh", "Shivpuri", "Kaudiyala", "Auli"];
 
 const ACTIVITY_TYPES = [
   "River Rafting",
   "Camping",
-  "Bungee Jumping",
-  "Trekking",
+  "Bungee & Adventure",
   "Hotel Stay",
-  "Scooty Rental",
-  "Bike Rental",
+  "Rental",
   "Combo Package",
+  "Custom Activity", // 👈 NEW
+];
+/* ---------- COMPANY MASTER DATA ---------- */
+
+const LOCATIONS = ["Rishikesh", "Shivpuri", "Kaudiyala", "Auli"];
+
+const CAMPS = [
+  "Shivpuri Riverside Budget Camp",
+  "Malakunti Adventure Camp with Pool",
+  "Riverside Camping (Luxury)",
+  "Aureva Riverside Luxe Retreat",
 ];
 
-const ACTIVITY_VARIANTS = {
-  "River Rafting": ["16 KM", "24 KM"],
-  Camping: ["Swiss Tent", "Alpine Tent"],
-  "Bungee Jumping": ["Standard Jump"],
-  Trekking: ["Easy", "Moderate", "Difficult"],
-  "Hotel Stay": ["Standard Room", "Deluxe Room"],
-  "Scooty Rental": ["Activa", "Access"],
-  "Bike Rental": ["Royal Enfield", "Pulsar"],
-  "Combo Package": ["Rafting + Camping", "Rafting + Camping + Bungee"],
-};
+const RAFTING_STRETCHES = [
+  { name: "Brahmpuri – 12 KM", price: 449 },
+  { name: "Club House – 14 KM", price: 530 },
+  { name: "Marine Drive – 12 KM", price: 599 },
+  { name: "Shivpuri – 16 KM", price: 649 },
+  { name: "Marine Drive – 24 KM", price: 999 },
+  { name: "Kaudiyala – 36 KM", price: 1999 },
+];
+
+const BUNGEE_ACTIVITIES = [
+  { name: "Sky Walk", price: 999 },
+  { name: "Zipline", price: 1199 },
+  { name: "Rocket Bungee", price: 1999 },
+  { name: "Splash Bungee", price: 3999 },
+  { name: "Tower Top Swing", price: 1199 },
+];
 
 const PRICING_UNITS = ["Per Person", "Per Night", "Per Day", "Fixed Package"];
 const PAYMENT_MODES = ["Cash", "UPI", "Card", "Bank Transfer"];
@@ -40,14 +55,27 @@ export default function CreateInvoice() {
   const previewRef = useRef(null);
   const [showPreview, setShowPreview] = useState(false);
 
+  // const [services, setServices] = useState([
+  //   {
+  //     type: "",
+  //     variant: "",
+  //     pricingUnit: "Per Person",
+  //     qty: 1,
+  //     rate: 0,
+  //     description: "",
+  //   },
+  // ]);
   const [services, setServices] = useState([
     {
       type: "",
+      customType: "",
       variant: "",
+      customVariant: "",
       pricingUnit: "Per Person",
       qty: 1,
       rate: 0,
       description: "",
+      isCustom: false,
     },
   ]);
 
@@ -111,6 +139,39 @@ export default function CreateInvoice() {
 
   /* ---------- HELPERS ---------- */
 
+  const getVariants = (type) => {
+    if (type === "River Rafting") {
+      return RAFTING_STRETCHES.map((r) => r.name);
+    }
+
+    if (type === "Camping") {
+      return CAMPS;
+    }
+
+    if (type === "Bungee & Adventure") {
+      return BUNGEE_ACTIVITIES.map((b) => b.name);
+    }
+
+    if (type === "Hotel Stay") {
+      return ["Standard Room", "Deluxe Room", "River View Room"];
+    }
+
+    if (type === "Rental") {
+      return ["Scooty", "Royal Enfield", "Pulsar"];
+    }
+
+    if (type === "Combo Package") {
+      return [
+        "Splash Bungy + Tower Swing",
+        "Mega Adventure Combo",
+        "Extreme Combo Pack",
+        "Camp + Rafting",
+        "Custom Combo",
+      ];
+    }
+
+    return [];
+  };
   const updateService = (i, key, value) => {
     const copy = [...services];
     copy[i][key] = value;
@@ -226,514 +287,755 @@ export default function CreateInvoice() {
   /* ---------- UI ---------- */
 
   return (
-    <div className="bg-white rounded-3xl p-10 shadow-lg border space-y-12">
-      {/* HEADER */}
-      <div className="flex items-center justify-between mb-10">
-        <div>
-          <h2 className="text-3xl font-black tracking-tight">
-            🧾 Tripshalla Invoice
-          </h2>
-          <p className="text-sm text-slate-500 mt-1">
-            Create a booking invoice step by step
-          </p>
-        </div>
-
-        <div className="hidden md:flex items-center gap-2 text-xs font-semibold text-slate-600">
-          <span className="px-3 py-1 rounded-full bg-slate-100">Customer</span>→
-          <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700">
-            Trip
-          </span>
-          →
-          <span className="px-3 py-1 rounded-full bg-slate-100">
-            Activities
-          </span>
-          →<span className="px-3 py-1 rounded-full bg-slate-100">Payment</span>
-        </div>
-      </div>
-
-      {/* TRIP CONTEXT */}
-      <section className="bg-white border border-slate-200 rounded-3xl p-8">
-        <div className="mb-6">
-          <h3 className="text-xl font-black tracking-tight">📍 Trip Context</h3>
-          <p className="text-sm text-slate-500 mt-1">
-            Where and when this booking takes place
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {/* LOCATION */}
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-emerald-50 py-10 px-6">
+      <div className="max-w-7xl mx-auto bg-white rounded-3xl p-12 shadow-2xl border border-slate-100 space-y-14">
+        {/* HEADER */}
+        <div className="flex items-center justify-between mb-10">
           <div>
-            <label className="field-label">Location</label>
-            <select
-              className="input"
-              value={trip.location}
-              onChange={(e) => setTrip({ ...trip, location: e.target.value })}
-            >
-              <option value="">Select Location</option>
-              {LOCATIONS.map((l) => (
-                <option key={l}>{l}</option>
-              ))}
-            </select>
-          </div>
-
-          {/* START DATE */}
-          <div>
-            <label className="field-label">Start Date</label>
-            <input
-              type="date"
-              className="input"
-              value={trip.startDate}
-              onChange={(e) => setTrip({ ...trip, startDate: e.target.value })}
-            />
-          </div>
-
-          {/* END DATE (CONDITIONAL) */}
-          {requiresStay && (
-            <div>
-              <label className="field-label">End Date</label>
-              <input
-                type="date"
-                className="input"
-                value={trip.endDate}
-                onChange={(e) => setTrip({ ...trip, endDate: e.target.value })}
-              />
-            </div>
-          )}
-        </div>
-
-        {!requiresStay && trip.startDate && (
-          <div className="mt-4 text-sm text-slate-500">
-            📅 Single-day activity selected
-          </div>
-        )}
-      </section>
-      {/* ================= CUSTOMER DETAILS ================= */}
-      <section className="bg-white border border-slate-200 rounded-3xl p-8">
-        <div className="mb-6">
-          <h3 className="text-xl font-black tracking-tight">
-            👤 Customer Details
-          </h3>
-          <p className="text-sm text-slate-500 mt-1">Who is this booking for</p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {/* NAME */}
-          <div>
-            <label className="field-label">Customer Name *</label>
-            <input
-              className="input"
-              placeholder="Full name"
-              value={customer.name}
-              onChange={(e) =>
-                setCustomer({ ...customer, name: e.target.value })
-              }
-            />
-          </div>
-
-          {/* MOBILE */}
-          <div>
-            <label className="field-label">Mobile Number *</label>
-            <input
-              className="input"
-              placeholder="10-digit mobile"
-              value={customer.phone}
-              onChange={(e) =>
-                setCustomer({ ...customer, phone: e.target.value })
-              }
-            />
-          </div>
-
-          {/* EMAIL */}
-          <div>
-            <label className="field-label">Email</label>
-            <input
-              className="input"
-              placeholder="Optional"
-              value={customer.email}
-              onChange={(e) =>
-                setCustomer({ ...customer, email: e.target.value })
-              }
-            />
-          </div>
-
-          {/* CITY */}
-          <div>
-            <label className="field-label">City</label>
-            <input
-              className="input"
-              placeholder="Customer city"
-              value={customer.city}
-              onChange={(e) =>
-                setCustomer({ ...customer, city: e.target.value })
-              }
-            />
-          </div>
-
-          {/* ADULTS */}
-          <div>
-            <label className="field-label">Adults</label>
-            <input
-              type="number"
-              min="1"
-              className="input text-center"
-              value={customer.adults}
-              onChange={(e) =>
-                setCustomer({ ...customer, adults: +e.target.value })
-              }
-            />
-          </div>
-
-          {/* CHILDREN */}
-          <div>
-            <label className="field-label">Children</label>
-            <input
-              type="number"
-              min="0"
-              className="input text-center"
-              value={customer.children}
-              onChange={(e) =>
-                setCustomer({ ...customer, children: +e.target.value })
-              }
-            />
-          </div>
-
-          {/* NOTES */}
-          <div className="md:col-span-3">
-            <label className="field-label">Special Notes</label>
-            <textarea
-              rows={2}
-              className="input"
-              placeholder="Pickup point, arrival time, food preference, etc."
-              value={customer.notes}
-              onChange={(e) =>
-                setCustomer({ ...customer, notes: e.target.value })
-              }
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* ACTIVITIES */}
-      <section>
-        <div className="flex items-center justify-between mb-6">
-          <div>
-            <h3 className="text-xl font-black tracking-tight">
-              🧗 Activities & Services
-            </h3>
-            <p className="text-sm text-slate-500">
-              Add all activities included in this booking
+            <h2 className="text-4xl font-extrabold tracking-tight text-slate-800">
+              🧾 Tripshalla Invoice
+            </h2>
+            <p className="text-sm text-slate-500 mt-1">
+              Create a booking invoice step by step
             </p>
           </div>
 
-          <button
-            onClick={addService}
-            className="flex items-center gap-2 bg-emerald-600 text-white px-5 py-2.5 rounded-xl font-bold hover:bg-emerald-700 transition"
-          >
-            <Plus size={18} />
-            Add Activity
-          </button>
-        </div>
-
-        {services.map((s, i) => (
-          <div
-            key={i}
-            className="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm space-y-5"
-          >
-            {/* ROW HEADER */}
-            <div className="flex justify-between items-center">
-              <p className="font-bold text-slate-700">Activity #{i + 1}</p>
-              <button
-                onClick={() => removeService(i)}
-                className="text-red-500 hover:text-red-700"
-              >
-                <Trash2 />
-              </button>
-            </div>
-
-            {/* MAIN GRID */}
-            <div className="grid md:grid-cols-6 gap-4">
-              {/* ACTIVITY */}
-              <div>
-                <label className="field-label">Activity</label>
-                <select
-                  className="input"
-                  value={s.type}
-                  onChange={(e) => updateService(i, "type", e.target.value)}
-                >
-                  <option value="">Select Activity</option>
-                  {ACTIVITY_TYPES.map((a) => (
-                    <option key={a}>{a}</option>
-                  ))}
-                </select>
-              </div>
-
-              {/* VARIANT */}
-              <div>
-                <label className="field-label">Variant</label>
-                <select
-                  className="input"
-                  value={s.variant}
-                  onChange={(e) => updateService(i, "variant", e.target.value)}
-                >
-                  <option value="">Select Variant</option>
-                  {(ACTIVITY_VARIANTS[s.type] || []).map((v) => (
-                    <option key={v}>{v}</option>
-                  ))}
-                </select>
-              </div>
-
-              {/* PRICING */}
-              <div>
-                <label className="field-label">Pricing Unit</label>
-                <select
-                  className="input"
-                  value={s.pricingUnit}
-                  onChange={(e) =>
-                    updateService(i, "pricingUnit", e.target.value)
-                  }
-                >
-                  {PRICING_UNITS.map((u) => (
-                    <option key={u}>{u}</option>
-                  ))}
-                </select>
-              </div>
-
-              {/* QTY */}
-              <div>
-                <label className="field-label">{qtyLabel(s.pricingUnit)}</label>
-                <input
-                  type="number"
-                  min="1"
-                  className="input text-center"
-                  value={s.qty}
-                  onChange={(e) => updateService(i, "qty", +e.target.value)}
-                />
-              </div>
-
-              {/* RATE */}
-              <div>
-                <label className="field-label">Rate (₹)</label>
-                <input
-                  type="number"
-                  className="input text-right font-semibold"
-                  value={s.rate}
-                  onChange={(e) => updateService(i, "rate", +e.target.value)}
-                />
-              </div>
-
-              {/* TOTAL */}
-              <div className="flex flex-col justify-end">
-                <label className="field-label">Total</label>
-                <div className="text-xl font-black text-emerald-700">
-                  ₹{s.qty * s.rate}
-                </div>
-              </div>
-            </div>
-
-            {/* DESCRIPTION */}
-            <div>
-              <label className="field-label">Description</label>
-              <textarea
-                rows={1}
-                className="input"
-                placeholder="Auto-filled for combo packages"
-                value={s.description}
-                onChange={(e) =>
-                  updateService(i, "description", e.target.value)
-                }
-              />
-            </div>
+          <div className="hidden md:flex items-center gap-2 text-xs font-semibold text-slate-600">
+            <span className="px-3 py-1 rounded-full bg-slate-100">
+              Customer
+            </span>
+            →
+            <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700">
+              Trip
+            </span>
+            →
+            <span className="px-3 py-1 rounded-full bg-slate-100">
+              Activities
+            </span>
+            →
+            <span className="px-3 py-1 rounded-full bg-slate-100">Payment</span>
           </div>
-        ))}
-      </section>
-
-      {/* PAYMENT */}
-      <section className="bg-white border rounded-3xl p-8">
-        {/* <h3 className="section-title mb-6">Payment Summary</h3> */}
-        <div className="flex items-center justify-between mb-6">
-          <h3 className="text-xl font-black tracking-tight">
-            💳 Payment Summary
-          </h3>
-          <span className="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-100 text-emerald-700">
-            Final Step
-          </span>
         </div>
 
-        {/* INPUT CARD */}
-        <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 mb-8">
-          <p className="text-sm font-semibold text-slate-600 mb-4">
-            Payment Controls
-          </p>
-
-          <div className="grid md:grid-cols-5 gap-5">
-            {/* DISCOUNT TYPE */}
+        {/* TRIP CONTEXT */}
+        <section className="bg-white border border-slate-200 rounded-2xl p-10 shadow-md space-y-8">
+          {/* HEADER */}
+          <div className="flex items-center justify-between">
             <div>
-              <label className="field-label">Discount Type</label>
-              <select
-                className="input focus:ring-emerald-500"
-                value={payment.discountType}
-                onChange={(e) =>
-                  setPayment({ ...payment, discountType: e.target.value })
-                }
-              >
-                <option value="amount">₹ Flat</option>
-                <option value="percent">% Percentage</option>
-              </select>
+              <h3 className="text-2xl font-bold text-slate-800">
+                📍 Trip Context
+              </h3>
+              <p className="text-sm text-slate-500 mt-1">
+                Location and schedule details for this booking
+              </p>
             </div>
 
-            {/* DISCOUNT VALUE */}
-            <div>
-              <label className="field-label">
-                {payment.discountType === "percent"
-                  ? "Discount (%)"
-                  : "Discount Amount (₹)"}
+            <span className="text-xs font-semibold px-4 py-1 rounded-full bg-slate-100 text-slate-600">
+              Trip Info
+            </span>
+          </div>
+
+          {/* FORM GRID */}
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* LOCATION */}
+            <div className="space-y-2">
+              <label className="text-xs font-semibold text-slate-500">
+                Location
               </label>
-              <input
-                type="number"
-                className="input text-right font-semibold"
-                value={payment.discountValue}
-                onChange={(e) =>
-                  setPayment({
-                    ...payment,
-                    discountValue: +e.target.value,
-                  })
-                }
-              />
-            </div>
-
-            {/* PAID */}
-            <div>
-              <label className="field-label">Paid Amount (₹)</label>
-              <input
-                type="number"
-                className="input text-right font-semibold"
-                value={payment.paid}
-                onChange={(e) =>
-                  setPayment({ ...payment, paid: +e.target.value })
-                }
-              />
-            </div>
-
-            {/* MODE */}
-            <div>
-              <label className="field-label">Payment Mode</label>
               <select
-                className="input"
-                value={payment.mode}
-                onChange={(e) =>
-                  setPayment({ ...payment, mode: e.target.value })
-                }
+                className="w-full border border-slate-300 rounded-xl px-4 py-2.5 bg-white
+                   focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
+                value={trip.location}
+                onChange={(e) => setTrip({ ...trip, location: e.target.value })}
               >
-                {PAYMENT_MODES.map((p) => (
-                  <option key={p}>{p}</option>
+                <option value="">Select Location</option>
+                {LOCATIONS.map((l) => (
+                  <option key={l}>{l}</option>
                 ))}
               </select>
             </div>
 
-            {/* REF */}
-            <div>
-              <label className="field-label">UTR / Reference</label>
+            {/* START DATE */}
+            <div className="space-y-2">
+              <label className="text-xs font-semibold text-slate-500">
+                Start Date
+              </label>
               <input
-                className="input"
-                placeholder="Optional"
-                value={payment.reference}
+                type="date"
+                className="w-full border border-slate-300 rounded-xl px-4 py-2.5
+                   focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
+                value={trip.startDate}
                 onChange={(e) =>
-                  setPayment({ ...payment, reference: e.target.value })
+                  setTrip({ ...trip, startDate: e.target.value })
+                }
+              />
+            </div>
+
+            {/* END DATE */}
+            {requiresStay && (
+              <div className="space-y-2">
+                <label className="text-xs font-semibold text-slate-500">
+                  End Date
+                </label>
+                <input
+                  type="date"
+                  className="w-full border border-slate-300 rounded-xl px-4 py-2.5
+                     focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
+                  value={trip.endDate}
+                  onChange={(e) =>
+                    setTrip({ ...trip, endDate: e.target.value })
+                  }
+                />
+              </div>
+            )}
+          </div>
+
+          {/* INFO PANEL */}
+          {trip.startDate && (
+            <div
+              className={`rounded-xl px-6 py-4 text-sm font-medium flex items-center gap-3
+        ${
+          requiresStay
+            ? "bg-emerald-50 border border-emerald-200 text-emerald-700"
+            : "bg-blue-50 border border-blue-200 text-blue-700"
+        }`}
+            >
+              {requiresStay ? (
+                <>
+                  🏕 Stay booking from <strong>{trip.startDate}</strong> to{" "}
+                  <strong>{trip.endDate || "—"}</strong>
+                </>
+              ) : (
+                <>
+                  📅 Single-day activity scheduled on{" "}
+                  <strong>{trip.startDate}</strong>
+                </>
+              )}
+            </div>
+          )}
+        </section>
+        {/* ================= CUSTOMER DETAILS ================= */}
+        <section className="bg-white border border-slate-200 rounded-2xl p-10 shadow-md space-y-8">
+          {/* HEADER */}
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-2xl font-bold text-slate-800">
+                👤 Customer Details
+              </h3>
+              <p className="text-sm text-slate-500 mt-1">
+                Information about the guest making this booking
+              </p>
+            </div>
+
+            <span className="text-xs font-semibold px-4 py-1 rounded-full bg-slate-100 text-slate-600">
+              Required Info
+            </span>
+          </div>
+
+          {/* FORM GRID */}
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* NAME */}
+            <div className="space-y-2">
+              <label className="text-xs font-semibold text-slate-500">
+                Customer Name <span className="text-red-500">*</span>
+              </label>
+              <input
+                className="w-full border border-slate-300 rounded-xl px-4 py-2.5 
+                   focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
+                placeholder="Full name"
+                value={customer.name}
+                onChange={(e) =>
+                  setCustomer({ ...customer, name: e.target.value })
+                }
+              />
+            </div>
+
+            {/* MOBILE */}
+            <div className="space-y-2">
+              <label className="text-xs font-semibold text-slate-500">
+                Mobile Number <span className="text-red-500">*</span>
+              </label>
+              <input
+                className="w-full border border-slate-300 rounded-xl px-4 py-2.5 
+                   focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
+                placeholder="10-digit mobile"
+                value={customer.phone}
+                onChange={(e) =>
+                  setCustomer({ ...customer, phone: e.target.value })
+                }
+              />
+            </div>
+
+            {/* EMAIL */}
+            <div className="space-y-2">
+              <label className="text-xs font-semibold text-slate-500">
+                Email
+              </label>
+              <input
+                className="w-full border border-slate-300 rounded-xl px-4 py-2.5 
+                   focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
+                placeholder="Optional"
+                value={customer.email}
+                onChange={(e) =>
+                  setCustomer({ ...customer, email: e.target.value })
+                }
+              />
+            </div>
+
+            {/* CITY */}
+            <div className="space-y-2">
+              <label className="text-xs font-semibold text-slate-500">
+                City
+              </label>
+              <input
+                className="w-full border border-slate-300 rounded-xl px-4 py-2.5 
+                   focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
+                placeholder="Customer city"
+                value={customer.city}
+                onChange={(e) =>
+                  setCustomer({ ...customer, city: e.target.value })
+                }
+              />
+            </div>
+
+            {/* ADULTS */}
+            <div className="space-y-2">
+              <label className="text-xs font-semibold text-slate-500">
+                Adults
+              </label>
+              <input
+                type="number"
+                min="1"
+                className="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-center
+                   focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
+                value={customer.adults}
+                onChange={(e) =>
+                  setCustomer({ ...customer, adults: +e.target.value })
+                }
+              />
+            </div>
+
+            {/* CHILDREN */}
+            <div className="space-y-2">
+              <label className="text-xs font-semibold text-slate-500">
+                Children
+              </label>
+              <input
+                type="number"
+                min="0"
+                className="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-center
+                   focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
+                value={customer.children}
+                onChange={(e) =>
+                  setCustomer({ ...customer, children: +e.target.value })
+                }
+              />
+            </div>
+
+            {/* NOTES */}
+            <div className="md:col-span-3 space-y-2">
+              <label className="text-xs font-semibold text-slate-500">
+                Special Notes
+              </label>
+              <textarea
+                rows={3}
+                className="w-full border border-slate-300 rounded-xl px-4 py-2.5 
+                   focus:outline-none focus:ring-2 focus:ring-emerald-400 transition resize-none"
+                placeholder="Pickup point, arrival time, food preference, special request, etc."
+                value={customer.notes}
+                onChange={(e) =>
+                  setCustomer({ ...customer, notes: e.target.value })
                 }
               />
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* TOTALS CARD */}
-        <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-6 space-y-3">
-          <div className="flex justify-between text-slate-600 font-semibold">
-            <span>Subtotal</span>
-            <span>₹{subtotal}</span>
-          </div>
-
-          {discountAmount > 0 && (
-            <div className="flex justify-between text-slate-600 font-semibold">
-              <span>
-                Discount{" "}
-                {payment.discountType === "percent"
-                  ? `(${payment.discountValue}%)`
-                  : ""}
-              </span>
-              <span>- ₹{discountAmount}</span>
+        {/* ACTIVITIES */}
+        <section>
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h3 className="text-xl font-black tracking-tight">
+                🧗 Activities & Services
+              </h3>
+              <p className="text-sm text-slate-500">
+                Add all activities included in this booking
+              </p>
             </div>
-          )}
 
-          <div className="border-t border-emerald-200 my-2" />
-
-          <div className="flex justify-between text-2xl font-black text-emerald-700">
-            <span>Total Amount</span>
-            <span>₹{total}</span>
+            <button
+              onClick={addService}
+              className="flex items-center gap-2 bg-emerald-600 text-white px-5 py-2.5 rounded-xl font-bold hover:bg-emerald-700 transition"
+            >
+              <Plus size={18} />
+              Add Activity
+            </button>
           </div>
-        </div>
 
-        {/* BALANCE */}
-        <div className="mt-6 flex justify-between items-center bg-red-50 border border-red-200 rounded-2xl p-5">
-          <span className="font-black text-red-600 text-lg">Balance Due</span>
-          <span className="font-black text-2xl text-red-700">₹{balance}</span>
-        </div>
-      </section>
-      {showPreview && (
-        // <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center">
-        <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center overscroll-contain">
-          <div className="bg-white rounded-2xl">
-            <div className="max-h-[90vh] overflow-auto">
-              <InvoicePreview
-                ref={previewRef}
-                invoiceNo={invoiceNo}
-                customer={customer}
-                trip={trip}
-                services={services}
-                subtotal={subtotal}
-                total={total}
-                balance={balance}
-                discountAmount={discountAmount}
-                discountType={payment.discountType}
-                discountValue={payment.discountValue}
-                paid={payment.paid}
-                paymentMode={payment.mode}
-              />
-
-              <div className="flex justify-end gap-4 p-6 border-t">
+          {services.map((s, i) => (
+            <div
+              key={i}
+              // className="bg-white border border-slate-200 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300"
+            >
+              {/* ROW HEADER */}
+              {/* <div className="flex justify-between items-center">
+                <p className="font-bold text-slate-700">Activity #{i + 1}</p>
                 <button
-                  className="btn-outline"
-                  onClick={() => setShowPreview(false)}
+                  onClick={() => removeService(i)}
+                  className="text-red-500 hover:text-red-700"
                 >
-                  Close
+                  <Trash2 />
                 </button>
+              </div> */}
 
-                <button className="btn-primary" onClick={handleDownloadPdf}>
-                  Download PDF
-                </button>
+              {/* MAIN GRID */}
+              <div className="bg-white border border-slate-200 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 space-y-8">
+                {/* HEADER */}
+                <div className="flex justify-between items-center">
+                  <p className="text-lg font-semibold text-slate-800">
+                    Activity #{i + 1}
+                  </p>
+                  <button
+                    onClick={() => removeService(i)}
+                    className="text-red-500 hover:text-red-700 transition"
+                  >
+                    <Trash2 size={20} />
+                  </button>
+                </div>
+
+                {/* FORM SECTION */}
+                <div className="space-y-8">
+                  {/* ===== ROW 1 ===== */}
+                  <div className="grid md:grid-cols-3 gap-6">
+                    {/* Activity Type */}
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-500 mb-1">
+                        Activity Type
+                      </label>
+
+                      <select
+                        className="w-full border border-slate-300 rounded-xl px-4 py-2 bg-white 
+               focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
+                        value={s.type}
+                        onChange={(e) => {
+                          const value = e.target.value;
+                          updateService(i, "type", value);
+                          updateService(
+                            i,
+                            "isCustom",
+                            value === "Custom Activity",
+                          );
+                        }}
+                      >
+                        <option value="">Select Activity</option>
+                        {ACTIVITY_TYPES.map((a) => (
+                          <option key={a}>{a}</option>
+                        ))}
+                      </select>
+
+                      {/* CUSTOM ACTIVITY INPUT */}
+                      {s.type === "Custom Activity" && (
+                        <input
+                          type="text"
+                          placeholder="Enter custom activity name"
+                          className="mt-3 w-full border border-slate-300 rounded-xl px-4 py-2 
+                 focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
+                          value={s.customType}
+                          onChange={(e) =>
+                            updateService(i, "customType", e.target.value)
+                          }
+                        />
+                      )}
+                    </div>
+
+                    {/* Variant */}
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-500 mb-1">
+                        Variant
+                      </label>
+
+                      {s.type !== "Custom Activity" ? (
+                        <>
+                          <select
+                            className="w-full border border-slate-300 rounded-xl px-4 py-2 bg-white 
+                   focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
+                            value={s.variant}
+                            onChange={(e) =>
+                              updateService(i, "variant", e.target.value)
+                            }
+                            disabled={!s.type}
+                          >
+                            <option value="">Select Variant</option>
+                            {getVariants(s.type).map((v) => (
+                              <option key={v}>{v}</option>
+                            ))}
+                            <option value="__custom__">Other (Custom)</option>
+                          </select>
+
+                          {s.variant === "__custom__" && (
+                            <input
+                              type="text"
+                              placeholder="Enter custom variant"
+                              className="mt-3 w-full border border-slate-300 rounded-xl px-4 py-2 
+                     focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
+                              value={s.customVariant}
+                              onChange={(e) =>
+                                updateService(
+                                  i,
+                                  "customVariant",
+                                  e.target.value,
+                                )
+                              }
+                            />
+                          )}
+                        </>
+                      ) : (
+                        <input
+                          type="text"
+                          placeholder="Enter variant"
+                          className="w-full border border-slate-300 rounded-xl px-4 py-2 
+                 focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
+                          value={s.customVariant}
+                          onChange={(e) =>
+                            updateService(i, "customVariant", e.target.value)
+                          }
+                        />
+                      )}
+                    </div>
+
+                    {/* Pricing Unit */}
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-500 mb-1">
+                        Pricing Unit
+                      </label>
+                      <select
+                        className="w-full border border-slate-300 rounded-xl px-4 py-2 bg-white 
+                     focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
+                        value={s.pricingUnit}
+                        onChange={(e) =>
+                          updateService(i, "pricingUnit", e.target.value)
+                        }
+                      >
+                        {PRICING_UNITS.map((u) => (
+                          <option key={u}>{u}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* ===== ROW 2 ===== */}
+                  <div className="grid md:grid-cols-4 gap-6 items-end">
+                    {/* Quantity */}
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-500 mb-1">
+                        Quantity
+                      </label>
+                      <input
+                        type="number"
+                        min="1"
+                        className="w-full border border-slate-300 rounded-xl px-4 py-2 
+                     focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
+                        value={s.qty}
+                        onChange={(e) =>
+                          updateService(i, "qty", +e.target.value)
+                        }
+                      />
+                    </div>
+
+                    {/* Rate */}
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-500 mb-1">
+                        Rate (₹)
+                      </label>
+                      <input
+                        type="number"
+                        className="w-full border border-slate-300 rounded-xl px-4 py-2 
+                     focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
+                        value={s.rate}
+                        onChange={(e) =>
+                          updateService(i, "rate", +e.target.value)
+                        }
+                      />
+                    </div>
+
+                    {/* TOTAL PANEL */}
+                    <div className="md:col-span-2">
+                      <div
+                        className="bg-emerald-50 border border-emerald-200 rounded-xl px-6 py-4 
+                        flex justify-between items-center shadow-sm"
+                      >
+                        <span className="text-sm font-semibold text-emerald-700">
+                          Total Amount
+                        </span>
+                        <span className="text-3xl font-extrabold text-emerald-700">
+                          ₹{s.qty * s.rate}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* ===== DESCRIPTION ===== */}
+                  <div className="pt-4 border-t border-slate-200">
+                    <label className="block text-xs font-semibold text-slate-500 mb-1">
+                      Description (Optional)
+                    </label>
+                    <textarea
+                      rows={2}
+                      className="w-full border border-slate-300 rounded-xl px-4 py-2 
+                   focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
+                      placeholder="Add activity notes..."
+                      value={s.description}
+                      onChange={(e) =>
+                        updateService(i, "description", e.target.value)
+                      }
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* DESCRIPTION */}
+              {/* <div>
+                <label className="field-label">Description</label>
+                <textarea
+                  rows={1}
+                  className="input"
+                  placeholder="Auto-filled for combo packages"
+                  value={s.description}
+                  onChange={(e) =>
+                    updateService(i, "description", e.target.value)
+                  }
+                />
+              </div> */}
+            </div>
+          ))}
+        </section>
+
+        {/* PAYMENT */}
+        <section className="bg-white border border-slate-200 rounded-2xl p-10 shadow-lg space-y-10">
+          {/* HEADER */}
+          <div className="flex items-center justify-between">
+            <h3 className="text-2xl font-bold text-slate-800">
+              💳 Payment Summary
+            </h3>
+            <span className="text-xs font-semibold px-4 py-1 rounded-full bg-emerald-100 text-emerald-700">
+              Final Step
+            </span>
+          </div>
+
+          {/* ================= PAYMENT CONTROLS ================= */}
+          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 space-y-6">
+            <p className="text-sm font-semibold text-slate-600">
+              Payment Controls
+            </p>
+
+            <div className="grid md:grid-cols-5 gap-6">
+              {/* Discount Type */}
+              <div>
+                <label className="block text-xs font-semibold text-slate-500 mb-1">
+                  Discount Type
+                </label>
+                <select
+                  className="w-full border border-slate-300 rounded-xl px-4 py-2 bg-white 
+                     focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
+                  value={payment.discountType}
+                  onChange={(e) =>
+                    setPayment({ ...payment, discountType: e.target.value })
+                  }
+                >
+                  <option value="amount">₹ Flat</option>
+                  <option value="percent">% Percentage</option>
+                </select>
+              </div>
+
+              {/* Discount Value */}
+              <div>
+                <label className="block text-xs font-semibold text-slate-500 mb-1">
+                  {payment.discountType === "percent"
+                    ? "Discount (%)"
+                    : "Discount Amount (₹)"}
+                </label>
+                <input
+                  type="number"
+                  className="w-full border border-slate-300 rounded-xl px-4 py-2 
+                     focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
+                  value={payment.discountValue}
+                  onChange={(e) =>
+                    setPayment({
+                      ...payment,
+                      discountValue: +e.target.value,
+                    })
+                  }
+                />
+              </div>
+
+              {/* Paid */}
+              <div>
+                <label className="block text-xs font-semibold text-slate-500 mb-1">
+                  Paid Amount (₹)
+                </label>
+                <input
+                  type="number"
+                  className="w-full border border-slate-300 rounded-xl px-4 py-2 
+                     focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
+                  value={payment.paid}
+                  onChange={(e) =>
+                    setPayment({ ...payment, paid: +e.target.value })
+                  }
+                />
+              </div>
+
+              {/* Payment Mode */}
+              <div>
+                <label className="block text-xs font-semibold text-slate-500 mb-1">
+                  Payment Mode
+                </label>
+                <select
+                  className="w-full border border-slate-300 rounded-xl px-4 py-2 bg-white 
+                     focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
+                  value={payment.mode}
+                  onChange={(e) =>
+                    setPayment({ ...payment, mode: e.target.value })
+                  }
+                >
+                  {PAYMENT_MODES.map((p) => (
+                    <option key={p}>{p}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Reference */}
+              <div>
+                <label className="block text-xs font-semibold text-slate-500 mb-1">
+                  UTR / Reference
+                </label>
+                <input
+                  className="w-full border border-slate-300 rounded-xl px-4 py-2 
+                     focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
+                  placeholder="Optional"
+                  value={payment.reference}
+                  onChange={(e) =>
+                    setPayment({ ...payment, reference: e.target.value })
+                  }
+                />
               </div>
             </div>
           </div>
+
+          {/* ================= BILL SUMMARY ================= */}
+          <div className="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm space-y-5">
+            {/* Subtotal */}
+            <div className="flex justify-between text-slate-600 text-sm font-medium">
+              <span>Subtotal</span>
+              <span>₹{subtotal}</span>
+            </div>
+
+            {/* Discount */}
+            {discountAmount > 0 && (
+              <div className="flex justify-between text-red-500 text-sm font-medium">
+                <span>
+                  Discount{" "}
+                  {payment.discountType === "percent"
+                    ? `(${payment.discountValue}%)`
+                    : ""}
+                </span>
+                <span>- ₹{discountAmount}</span>
+              </div>
+            )}
+
+            <div className="border-t border-slate-200 pt-4" />
+
+            {/* Total */}
+            <div className="flex justify-between items-center">
+              <span className="text-lg font-semibold text-slate-700">
+                Total Amount
+              </span>
+              <span className="text-3xl font-extrabold text-emerald-600">
+                ₹{total}
+              </span>
+            </div>
+          </div>
+
+          {/* ================= BALANCE PANEL ================= */}
+          <div
+            className={`rounded-2xl p-6 flex justify-between items-center 
+      ${
+        balance > 0
+          ? "bg-red-50 border border-red-200"
+          : "bg-emerald-50 border border-emerald-200"
+      }`}
+          >
+            <span
+              className={`text-lg font-semibold 
+      ${balance > 0 ? "text-red-600" : "text-emerald-600"}`}
+            >
+              {balance > 0 ? "Balance Due" : "Fully Paid"}
+            </span>
+
+            <span
+              className={`text-3xl font-extrabold 
+      ${balance > 0 ? "text-red-600" : "text-emerald-600"}`}
+            >
+              ₹{balance}
+            </span>
+          </div>
+        </section>
+        {showPreview && (
+          // <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center">
+          <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center overscroll-contain">
+            <div className="bg-white rounded-2xl">
+              <div className="max-h-[90vh] overflow-auto">
+                <InvoicePreview
+                  ref={previewRef}
+                  invoiceNo={invoiceNo}
+                  customer={customer}
+                  trip={trip}
+                  services={services}
+                  subtotal={subtotal}
+                  total={total}
+                  balance={balance}
+                  discountAmount={discountAmount}
+                  discountType={payment.discountType}
+                  discountValue={payment.discountValue}
+                  paid={payment.paid}
+                  paymentMode={payment.mode}
+                />
+
+                <div className="flex justify-end gap-4 p-6 border-t">
+                  <button
+                    className="btn-outline"
+                    onClick={() => setShowPreview(false)}
+                  >
+                    Close
+                  </button>
+
+                  <button className="btn-primary" onClick={handleDownloadPdf}>
+                    Download PDF
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ACTIONS */}
+        <div className="flex justify-end gap-4">
+          <button className="btn-outline" onClick={() => setShowPreview(true)}>
+            Preview Invoice
+          </button>
+          <button
+            className="btn-primary"
+            onClick={async () => {
+              setShowPreview(true);
+
+              // wait for DOM + layout
+              await new Promise((r) => setTimeout(r, 800));
+
+              handleDownloadPdf();
+            }}
+          >
+            Generate PDF
+          </button>
         </div>
-      )}
-
-      {/* ACTIONS */}
-      <div className="flex justify-end gap-4">
-        <button className="btn-outline" onClick={() => setShowPreview(true)}>
-          Preview Invoice
-        </button>
-        <button
-          className="btn-primary"
-          onClick={async () => {
-            setShowPreview(true);
-
-            // wait for DOM + layout
-            await new Promise((r) => setTimeout(r, 800));
-
-            handleDownloadPdf();
-          }}
-        >
-          Generate PDF
-        </button>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { forwardRef } from "react";
 
 /* ---------- SHARED STYLES ---------- */
@@ -47,99 +47,108 @@ const InvoicePreview = forwardRef(
       >
         {/* ================= HEADER ================= */}
         {/* ================= HEADER ================= */}
-        <div style={{ marginBottom: 36 }}>
+        {/* ================= HEADER ================= */}
+        <div style={{ marginBottom: 40 }}>
           <div
             style={{
               display: "flex",
               justifyContent: "space-between",
-              alignItems: "flex-start",
+              alignItems: "center",
             }}
           >
-            {/* BRAND */}
-            <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+            {/* ===== LEFT: BRAND ===== */}
+            <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
+              {/* Bigger Logo */}
               <img
-                src="/src/assets/logo.png"
+                src="/assets/TRIPSHALA.png"
                 alt="Tripshalla"
-                style={{ height: 56, borderRadius: 8 }}
+                style={{
+                  height: 72,
+                  objectFit: "contain",
+                }}
               />
 
+              {/* Brand Text */}
               <div style={{ display: "flex", flexDirection: "column" }}>
-                {/* BRAND NAME */}
+                {/* Brand Name */}
                 <h1
                   style={{
                     margin: 0,
                     fontFamily: "Poppins, Inter, Arial, sans-serif",
-                    fontSize: 30,
+                    fontSize: 34,
                     fontWeight: 900,
-                    letterSpacing: "0.6px",
+                    letterSpacing: "1px",
                     lineHeight: 1,
-                    color: "#0f172a", // slate-900
+                    color: "#0f172a",
                     textTransform: "uppercase",
                   }}
                 >
                   Tripshalla
                 </h1>
 
-                {/* DIVIDER LINE */}
+                {/* ORANGE Accent Line */}
                 <div
                   style={{
-                    width: 44,
-                    height: 3,
-                    backgroundColor: "#10b981", // emerald-500
-                    margin: "6px 0",
-                    borderRadius: 2,
+                    width: 60,
+                    height: 4,
+                    backgroundColor: "#f97316", // Orange-500
+                    margin: "8px 0",
+                    borderRadius: 3,
                   }}
                 />
 
-                {/* TAGLINE */}
+                {/* Tagline */}
                 <div
                   style={{
-                    fontFamily: "Inter, Arial, sans-serif",
-                    fontSize: 12,
+                    fontSize: 13,
                     fontWeight: 600,
-                    color: "#475569", // slate-600
-                    letterSpacing: "0.3px",
+                    color: "#475569",
+                    letterSpacing: "0.4px",
                   }}
                 >
                   Not Just Trips —{" "}
-                  <span style={{ color: "#047857" }}>Live Experiences</span>
+                  <span style={{ color: "#ea580c" }}>Live Experiences</span>
                 </div>
               </div>
             </div>
 
-            {/* INVOICE META */}
+            {/* ===== RIGHT: INVOICE META ===== */}
             <div
               style={{
                 border: "1px solid #e5e7eb",
-                borderRadius: 12,
-                padding: "12px 16px",
+                borderRadius: 14,
+                padding: "16px 22px",
                 textAlign: "right",
-                minWidth: 220,
+                minWidth: 240,
+                backgroundColor: "#f8fafc",
               }}
             >
               <div
                 style={{
-                  fontSize: 14,
-                  fontWeight: 800,
+                  fontSize: 15,
+                  fontWeight: 900,
+                  letterSpacing: "1px",
                   color: "#0f172a",
                 }}
               >
                 INVOICE
               </div>
 
-              <div style={{ fontSize: 12, color: "#475569", marginTop: 6 }}>
+              <div style={{ fontSize: 12, color: "#475569", marginTop: 8 }}>
                 <div>
                   Invoice No: <strong>{invoiceNo}</strong>
                 </div>
-                {trip?.startDate && <div>Date: {trip.startDate}</div>}
+                {trip?.startDate && (
+                  <div style={{ marginTop: 4 }}>Date: {trip.startDate}</div>
+                )}
               </div>
             </div>
           </div>
 
-          {/* Divider */}
+          {/* Bottom Divider */}
           <div
             style={{
-              marginTop: 24,
+              marginTop: 28,
               borderBottom: "2px solid #e5e7eb",
             }}
           />
@@ -305,8 +314,15 @@ const InvoicePreview = forwardRef(
                   <tr key={i}>
                     <td style={{ padding: "10px 0" }}>
                       <div style={{ fontWeight: 600 }}>
-                        {s.type}
-                        {s.variant && ` (${s.variant})`}
+                        {s.type === "Custom Activity" ? s.customType : s.type}
+
+                        {s.variant &&
+                          s.variant !== "__custom__" &&
+                          ` (${s.variant})`}
+
+                        {s.variant === "__custom__" &&
+                          s.customVariant &&
+                          ` (${s.customVariant})`}
                       </div>
                       {s.description && (
                         <div style={{ fontSize: 12, color: "#64748b" }}>

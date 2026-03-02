@@ -1,14 +1,15 @@
-'use client'
+"use client";
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
-import Image from "next/image"
+import Image from "next/image";
 
 function NavLink({ to, children, className, onClick }) {
   const pathname = usePathname();
   const isActive = pathname === to;
-  const resolvedClass = typeof className === "function" ? className({ isActive }) : className;
+  const resolvedClass =
+    typeof className === "function" ? className({ isActive }) : className;
   return (
     <Link href={to} className={resolvedClass} onClick={onClick}>
       {children}
@@ -24,7 +25,7 @@ export default function Header({
   badges = [],
   bgImage = "/assets/15.png",
 }) {
-  const logosrc = '/assets/Mountains.png'
+  const logosrc = "/assets/Mountains.png";
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -49,14 +50,14 @@ export default function Header({
     <header className="relative w-full h-[58vh] sm:h-[65vh] md:h-[80vh] overflow-hidden font-sans">
       {/* 1. HERO BACKGROUND */}
       <div className="absolute inset-0">
-  <Image
-    src={bgImage}
-    alt="Header background"
-    fill
-    priority
-    className="object-cover object-center"
-  />
-</div>
+        <Image
+          src={bgImage}
+          alt="Header background"
+          fill
+          priority
+          className="object-cover object-center"
+        />
+      </div>
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/10" />
 
       {/* 2. NAVIGATION BAR */}
@@ -69,8 +70,12 @@ export default function Header({
                 <li
                   key={item.key}
                   className="relative group cursor-pointer py-2"
-                  onMouseEnter={() => item.hasDropdown && setIsDropdownOpen(true)}
-                  onMouseLeave={() => item.hasDropdown && setIsDropdownOpen(false)}
+                  onMouseEnter={() =>
+                    item.hasDropdown && setIsDropdownOpen(true)
+                  }
+                  onMouseLeave={() =>
+                    item.hasDropdown && setIsDropdownOpen(false)
+                  }
                 >
                   {item.hasDropdown ? (
                     <div className="flex items-center gap-1 text-slate-700 text-sm font-bold transition-colors group-hover:text-amber-500">
@@ -125,15 +130,33 @@ export default function Header({
           {/* RIGHT: Socials & Hamburger */}
           <div className="flex-1 flex justify-end items-center ml-auto">
             <div className="hidden md:flex items-center gap-4 text-slate-700 mr-2">
-              <Link href="#" className="hover:text-amber-500 transition-colors">
-                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <Link
+                href="https://www.instagram.com/travel_with_tripshalla"
+                className="hover:text-amber-500 transition-colors"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <rect x="2" y="2" width="20" height="20" rx="5" />
                   <circle cx="12" cy="12" r="3" />
                   <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
                 </svg>
               </Link>
-              <Link href="#" className="hover:text-amber-500 transition-colors">
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <Link
+                href="https://www.instagram.com/travel_with_tripshalla/"
+                className="hover:text-amber-500 transition-colors"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path d="M22 5.92c-.62.28-1.28.47-1.98.55a3.47 3.47 0 001.52-1.92 6.93 6.93 0 01-2.2.84 3.45 3.45 0 00-5.88 3.14A9.79 9.79 0 013 4.87a3.45 3.45 0 001.07 4.6c-.5-.02-.98-.15-1.4-.38v.04a3.45 3.45 0 002.76 3.38c-.48.13-.99.13-1.48.05a3.46 3.46 0 003.22 2.4A6.92 6.92 0 012 18.58a9.76 9.76 0 005.29 1.55c6.34 0 9.81-5.25 9.81-9.8v-.45c.67-.49 1.26-1.1 1.72-1.79-.62.28-1.29.47-1.98.55z" />
                 </svg>
               </Link>
@@ -151,15 +174,24 @@ export default function Header({
       </nav>
 
       {/* 3. MOBILE SIDEBAR MENU */}
-      <div className={`fixed inset-0 z-[100] md:hidden transition-all duration-300 ${isMobileMenuOpen ? "visible" : "invisible"}`}>
+      <div
+        className={`fixed inset-0 z-[100] md:hidden transition-all duration-300 ${isMobileMenuOpen ? "visible" : "invisible"}`}
+      >
         <div
           className={`absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity ${isMobileMenuOpen ? "opacity-100" : "opacity-0"}`}
           onClick={() => setIsMobileMenuOpen(false)}
         />
-        <div className={`absolute right-0 top-0 h-full w-[280px] bg-white shadow-2xl transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
+        <div
+          className={`absolute right-0 top-0 h-full w-[280px] bg-white shadow-2xl transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}
+        >
           <div className="p-6 flex justify-between items-center border-b">
-            <span className="font-black text-emerald-800 italic text-xl">Tripshalla</span>
-            <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 bg-slate-100 rounded-full text-slate-900">
+            <span className="font-black text-emerald-800 italic text-xl">
+              Tripshalla
+            </span>
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="p-2 bg-slate-100 rounded-full text-slate-900"
+            >
               <X size={20} />
             </button>
           </div>
@@ -169,7 +201,9 @@ export default function Header({
                 <li key={item.key}>
                   {item.hasDropdown ? (
                     <div className="space-y-4">
-                      <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{item.label}</p>
+                      <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                        {item.label}
+                      </p>
                       <div className="flex flex-col gap-4 pl-4 border-l-2 border-amber-500">
                         {item.subLinks.map((sub) => (
                           <NavLink
@@ -213,11 +247,16 @@ export default function Header({
                   <span className="text-white/90">– {title.split("–")[1]}</span>
                 </h1>
                 {subtitle && (
-                  <p className="mt-4 text-white/80 text-sm md:text-lg font-medium">{subtitle}</p>
+                  <p className="mt-4 text-white/80 text-sm md:text-lg font-medium">
+                    {subtitle}
+                  </p>
                 )}
                 <div className="mt-5 flex flex-wrap gap-2 sm:gap-3">
                   {badges.map((b, i) => (
-                    <span key={i} className="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/20 text-white text-xs font-semibold shadow-sm">
+                    <span
+                      key={i}
+                      className="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/20 text-white text-xs font-semibold shadow-sm"
+                    >
                       {b}
                     </span>
                   ))}
