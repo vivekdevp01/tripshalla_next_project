@@ -38,13 +38,20 @@ const slides = [
 export default function HeroSection() {
   const router = useRouter();
   const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(1);
 
   useEffect(() => {
     const timer = setInterval(() => {
+      setDirection(1);
       setCurrent((prev) => (prev + 1) % slides.length);
     }, 5000);
     return () => clearInterval(timer);
   }, []);
+
+  const goTo = (index) => {
+    setDirection(index > current ? 1 : -1);
+    setCurrent(index);
+  };
 
   const handleScrollToExplore = () => {
     if (window.location.pathname === "/") {
@@ -62,13 +69,14 @@ export default function HeroSection() {
   return (
     <section className="relative h-[90vh] w-full overflow-hidden">
       {/* Background Image */}
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="sync" custom={direction}>
         <motion.div
           key={current}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
+          custom={direction}
+          initial={{ x: direction > 0 ? "100%" : "-100%", opacity: 0.5 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: direction > 0 ? "-100%" : "100%", opacity: 0.5 }}
+          transition={{ duration: 0.7, ease: "easeInOut" }}
           className="absolute inset-0"
         >
           <Image
@@ -86,13 +94,14 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto h-full px-6 flex items-center">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={current}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            custom={direction}
+            initial={{ x: direction > 0 ? 80 : -80, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: direction > 0 ? -80 : 80, opacity: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
             className="max-w-3xl text-white"
           >
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
@@ -118,12 +127,14 @@ export default function HeroSection() {
             </div>
 
             {/* Dot indicators */}
-            <div className="mt-8 flex gap-2">
+            <div className="mt-8 flex gap-2 justify-center md:justify-start">
               {slides.map((_, i) => (
                 <button
                   key={i}
-                  onClick={() => setCurrent(i)}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${i === current ? "w-8 bg-amber-400" : "w-3 bg-white/40"}`}
+                  onClick={() => goTo(i)}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    i === current ? "w-8 bg-amber-400" : "w-3 bg-white/40"
+                  }`}
                 />
               ))}
             </div>
