@@ -22,6 +22,7 @@ export default function BaseHeader({ links }) {
         { label: "Camps", to: "/packages/camp" },
         { label: "Adventure", to: "/bungee" },
         { label: "Rafting", to: "/raftings" },
+        { label: "Combos", to: "/combos" }
       ],
     },
     { key: "gallery", label: "Gallery", to: "/gallery" },

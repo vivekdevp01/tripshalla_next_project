@@ -39,6 +39,7 @@ export default function Header({
         { label: "Camps", to: "/packages/camp" },
         { label: "Adventure", to: "/bungee" },
         { label: "Rafting", to: "/raftings" },
+        { label: "Combos", to: "/combos" }
       ],
     },
     { key: "blog", label: "GALLERY", to: "/gallery" },

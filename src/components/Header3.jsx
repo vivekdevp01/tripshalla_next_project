@@ -29,6 +29,7 @@ const Header3 = () => {
       { label: "Camps", to: "/packages/camp" },
       { label: "Adventure", to: "/bungee" },
       { label: "Rafting", to: "/raftings" },
+      { label: "Combos", to: "/combos" }
     ],
   };
 

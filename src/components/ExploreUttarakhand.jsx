@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { Mountain, Tent, Waves, Hotel, Bike, Kayak, ArrowRight } from "lucide-react";
+import { Mountain, Tent, Waves, Hotel, Bike,Zap, Kayak, ArrowRight } from "lucide-react";
 
 const categories = [
   {
@@ -64,6 +64,16 @@ const categories = [
     iconBg: "bg-green-100",
     iconColor: "text-green-600",
   },
+  {
+  title: "Combo Packages",
+  icon: Zap,
+  slug: "/combos",
+  desc: "Best value adventure bundles",
+  color: "from-amber-500 to-amber-600",
+  bgLight: "bg-amber-50",
+  iconBg: "bg-amber-100",
+  iconColor: "text-amber-600",
+},
 ];
 
 const containerVariants = {
@@ -196,7 +206,7 @@ export default function ExploreUttarakhand() {
             Get Expert Advice
           </motion.button>
         </motion.div>
-      </div>
+      </div> 
     </section>
   );
 }

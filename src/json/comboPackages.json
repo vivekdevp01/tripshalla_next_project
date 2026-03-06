@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "name": "Ultimate Adventure Combo",
+    "slug": "ultimate-adventure-combo",
+    "platform": "splash",
+    "tagline": "Bungee + Zipline + Giant Swing. The ultimate adrenaline package.",
+    "display_metric": "3 Activities",
+    "type": "combo",
+    "rating": "4.9",
+    "price": 5499,
+    "oldPrice": 7999,
+    "image": "/assets/combo1.webp",
+    "includes": [
+      { "name": "Splash Bungy", "slug": "splash-bungy", "description": "109 metre water touch bungee jump" },
+      { "name": "Zipline", "slug": "zipline", "description": "High speed zipline over the valley" },
+      { "name": "Giant Swing", "slug": "giant-swing", "description": "Pendulum swing over the gorge" }
+    ],
+    "location": "Shivpuri, Rishikesh",
+    "duration": "3-4 Hours",
+    "minimum_age": 12,
+    "inclusions": ["Safety gear", "DSLR video", "Certificate", "Professional briefing"],
+    "exclusions": ["Transport", "Personal expenses", "Insurance"],
+    "experience_flow": [
+      { "step": 1, "title": "Arrival & Briefing", "description": "Report at Splash Adventures base camp. Safety briefing and gear fitting." },
+      { "step": 2, "title": "Bungee Jump", "description": "109 metre water touch bungee jump with free DSLR video." },
+      { "step": 3, "title": "Zipline", "description": "High speed zipline ride over the valley." },
+      { "step": 4, "title": "Giant Swing", "description": "Pendulum swing over the gorge for the final rush." }
+    ],
+    "faqs": [
+      { "q": "Is this combo safe?", "a": "Yes, all activities use internationally certified equipment and trained instructors." },
+      { "q": "What is the weight limit?", "a": "Minimum 35kg and maximum 120kg for all activities." },
+      { "q": "Can I do activities separately?", "a": "Yes but the combo price is significantly cheaper." }
+    ],
+    "policies": [
+      { "id": 1, "title": "Cancellation Policy", "points": ["Non-refundable within 24 hours.\nFull credit note for weather cancellations."] }
+    ],
+    "media": [
+      { "media_url": "/assets/combo1.webp", "media_role": "hero_banner" },
+      { "media_url": "/assets/combo2.webp", "media_role": "gallery" },
+      { "media_url": "/assets/combo3.webp", "media_role": "gallery" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Rafting + Bungee Combo",
+    "slug": "rafting-bungee-combo",
+    "platform": "splash",
+    "tagline": "Conquer the rapids then leap from 109 metres. Best of both worlds.",
+    "display_metric": "2 Activities",
+    "type": "combo",
+    "rating": "4.8",
+    "price": 4499,
+    "oldPrice": 6499,
+    "image": "/assets/combo2.webp",
+    "includes": [
+      { "name": "River Rafting", "slug": "shivpuri-rafting", "description": "16km Shivpuri to Rishikesh rafting" },
+      { "name": "Splash Bungy", "slug": "splash-bungy", "description": "109 metre water touch bungee jump" }
+    ],
+    "location": "Shivpuri, Rishikesh",
+    "duration": "Full Day",
+    "minimum_age": 14,
+    "inclusions": ["Safety gear", "Rafting equipment", "DSLR video", "Certificate"],
+    "exclusions": ["Transport", "Meals", "Insurance"],
+    "experience_flow": [
+      { "step": 1, "title": "Morning Rafting", "description": "Start with 16km river rafting from Shivpuri to Rishikesh through Grade III+ rapids." },
+      { "step": 2, "title": "Lunch Break", "description": "Rest and refresh at the base camp." },
+      { "step": 3, "title": "Bungee Jump", "description": "End the day with a 109 metre bungee jump." }
+    ],
+    "faqs": [
+      { "q": "Is this a full day activity?", "a": "Yes, plan for approximately 6-8 hours including travel between locations." },
+      { "q": "What should I wear?", "a": "Comfortable clothes you don't mind getting wet. Avoid loose footwear." }
+    ],
+    "policies": [
+      { "id": 1, "title": "Cancellation Policy", "points": ["Non-refundable within 24 hours.\nFull credit note for weather cancellations."] }
+    ],
+    "media": [
+      { "media_url": "/assets/combo2.webp", "media_role": "hero_banner" },
+      { "media_url": "/assets/combo3.webp", "media_role": "gallery" },
+      { "media_url": "/assets/combo6.webp", "media_role": "gallery" }
+    ]
+  }
+]
