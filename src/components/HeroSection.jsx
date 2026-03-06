@@ -6,35 +6,34 @@ import { useEffect, useState } from "react";
 
 const slides = [
   {
-    image: "/assets/1.jpg",
-    heading: "Discover",
+    image: "/assets/63.jpg",
+    heading: "Explore",
     highlight: "Rishikesh",
-    subheading: "Beyond The Ordinary",
-    desc: "From adrenaline-filled adventures and riverside camping to scenic stays — experience travel crafted for thrill, comfort and unforgettable memories.",
+    subheading: "Adventure Capital of India",
+    desc: "Experience rafting, camping, bungee jumping and breathtaking Himalayan views — all curated by local experts.",
   },
   {
-    image: "/assets/21.webp",
-    heading: "Conquer",
-    highlight: "The Rapids",
-    subheading: "Of The Holy Ganga",
-    desc: "Grade III+ white water rafting from Marine Drive to Rishikesh. Certified guides, best safety gear, unforgettable rush.",
+    image: "/assets/rafting1.webp",
+    heading: "Ride The",
+    highlight: "Ganga Rapids",
+    subheading: "White Water Rafting",
+    desc: "Thrilling Grade III+ rafting from Marine Drive to Rishikesh with certified guides, premium safety gear and unforgettable adventure.",
   },
   {
-    image: "/assets/101.webp",
-    heading: "Take The",
-    highlight: "Leap",
-    subheading: "At 109 Metres",
-    desc: "India's highest water-touch bungee jump at Splash Bungy Rishikesh. Free DSLR video included. Are you ready?",
+    image: "/assets/adv5.webp",
+    heading: "India's Highest",
+    highlight: "Bungee Jump",
+    subheading: "109 Metres Of Pure Adrenaline",
+    desc: "Take the ultimate leap in Rishikesh with India's highest water-touch bungee jump — including free HD video.",
   },
   {
-    image: "/assets/camp1.webp",
-    heading: "Sleep Under",
-    highlight: "The Stars",
-    subheading: "By The Ganga",
-    desc: "Luxury riverside camping with bonfires, stargazing and adventure activities. The perfect escape from the city.",
+    image: "/assets/campingg2.webp",
+    heading: "Luxury",
+    highlight: "Riverside Camping",
+    subheading: "Sleep Under The Stars",
+    desc: "Bonfire nights, stargazing, music and riverside luxury camps — the perfect Himalayan escape.",
   },
 ];
-
 export default function HeroSection() {
   const router = useRouter();
   const [current, setCurrent] = useState(0);
@@ -93,15 +92,15 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-black/50" />
 
       {/* Content */}
+      {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto h-full px-6 flex items-center">
-        <AnimatePresence mode="wait" custom={direction}>
+        <AnimatePresence mode="wait">
           <motion.div
             key={current}
-            custom={direction}
-            initial={{ x: direction > 0 ? 80 : -80, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: direction > 0 ? -80 : 80, opacity: 0 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -40 }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
             className="max-w-3xl text-white"
           >
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
@@ -110,7 +109,9 @@ export default function HeroSection() {
               <br />
               {slide.subheading}
             </h1>
+
             <p className="mt-6 text-lg text-white/90">{slide.desc}</p>
+
             <div className="mt-8 flex flex-wrap gap-4">
               <button
                 onClick={handleScrollToExplore}
@@ -118,6 +119,7 @@ export default function HeroSection() {
               >
                 Explore Experiences
               </button>
+
               <button
                 onClick={() => router.push("/contact")}
                 className="border border-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-teal-900 transition"
