@@ -40,7 +40,7 @@ export default function OfferTicker() {
 
   const handleClaim = () => {
     const message =
-      "Hi Tripshalla 👋\n\nI saw the *30% OFF Adventure Offer* on your website.\n\nI'd like to book using coupon code *TRIP30*.\n\nCan you share available activities?";
+      "Hi Tripshalla 👋\n\nI saw the *10% OFF Adventure Offer* on your website.\n\nI'd like to book using coupon code *TRIP10*.\n\nCan you share available activities?";
 
     const phone = "917454875874";
 
@@ -78,13 +78,13 @@ export default function OfferTicker() {
           <span className="text-lg">🔥</span>
 
           <span className="text-amber-300">
-            FLAT <span className="text-white font-bold">30% OFF</span>
+            FLAT <span className="text-white font-bold">10% OFF</span>
           </span>
 
           <span className="text-gray-200">ON ALL ADVENTURES</span>
 
           <span className="bg-amber-400 text-teal-900 font-bold px-2 py-1 rounded text-[10px] sm:text-xs">
-            TRIP30
+            TRIP10
           </span>
         </motion.div>
 
