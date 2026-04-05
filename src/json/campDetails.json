@@ -600,9 +600,6 @@
     "inclusions": [
       "Luxury AC / Non-AC Cottage Accommodation",
       "Welcome Drink on Arrival",
-      "Evening Snacks",
-      "Buffet Dinner (Veg & Non-Veg)",
-      "Breakfast Next Morning",
       "Swimming Pool Access",
       "Bonfire with Music",
       "DJ Night (Selected Days)",
@@ -683,10 +680,7 @@
       {
         "day": 2,
         "title": "Morning Leisure • Breakfast • Checkout",
-        "description": "Wake up to scenic Himalayan views. Enjoy tea/coffee and leisure time. Freshen up and enjoy a healthy breakfast buffet before checkout.",
-        "meals": {
-          "breakfast": "Healthy breakfast buffet with tea & coffee"
-        }
+        "description": "Wake up to scenic Himalayan views. Enjoy tea/coffee and leisure time."
       }
     ],
 
@@ -707,10 +701,7 @@
         "q": "Is bonfire and DJ night included?",
         "a": "Yes, bonfire with music is included. DJ night is organised on selected days."
       },
-      {
-        "q": "Is food included in the package?",
-        "a": "Yes, the package includes evening snacks, buffet dinner, and breakfast."
-      },
+     
       {
         "q": "Is parking available?",
         "a": "Yes, free and secure parking is available inside the property."
